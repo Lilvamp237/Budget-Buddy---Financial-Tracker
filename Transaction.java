@@ -1,5 +1,6 @@
 public abstract class Transaction {
-    private int amount;
+    protected Category category;
+    protected int amount;
 
     public abstract int getAmount();
     public abstract void setAmount();

@@ -6,6 +6,8 @@ public class User{
     private String password;
     private String email;
     private String dob, gender, contactno;
+    
+    private Budget budget;
 
     private static User array[] = new User[20];
     private static int count =0;
@@ -22,7 +24,7 @@ public class User{
 
         array[count] = new User(user_id, name, email, dob, password, gender, contactno);
         count +=1;
-        
+
     }
 
     public static boolean validateUN(String userName){
