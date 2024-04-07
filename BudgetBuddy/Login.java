@@ -1,3 +1,10 @@
+package BudgetBuddy;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+
 public class Login extends javax.swing.JFrame {
     
     public Login() {
@@ -171,6 +178,37 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+
+
+
+        logInButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String uname = username.getText();
+                String pass = new String(password.getPassword());
+                
+                // Perform validation against the database
+                DB db = new DB();
+                ResultSet rs = db.getData("SELECT * FROM user WHERE username='" + uname + "' AND password='" + pass + "'");
+                try {
+                    if (rs.next()) {
+                        // Login successful, navigate to the main application screen
+                        JOptionPane.showMessageDialog(null, "Login successful!");
+                        // Add code here to navigate to the main application screen
+                    } else {
+                        // Login failed, display error message
+                        JOptionPane.showMessageDialog(null, "Invalid username or password!");
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "An error occurred while logging in!");
+                    ex.printStackTrace();
+                } finally {
+                    db.closeCon();
+                }
+            }
+        });
+
+
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -178,6 +216,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
+        this.dispose();
         Registration frame =new Registration();
         frame.setVisible(true);
     }//GEN-LAST:event_signUpButtonActionPerformed

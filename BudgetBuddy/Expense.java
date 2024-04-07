@@ -1,5 +1,7 @@
-public class Income extends Transaction {
-    
+package BudgetBuddy;
+
+public class Expense extends Transaction {
+
     public int getAmount(){
         return 0;
     }
@@ -7,4 +9,5 @@ public class Income extends Transaction {
     public void setAmount(){
         
     }
+    
 }

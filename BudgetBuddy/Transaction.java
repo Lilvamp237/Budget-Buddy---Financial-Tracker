@@ -1,3 +1,5 @@
+package BudgetBuddy;
+
 public abstract class Transaction {
     protected Category category;
     protected int amount;

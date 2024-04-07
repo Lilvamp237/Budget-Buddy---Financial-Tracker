@@ -1,3 +1,4 @@
+package BudgetBuddy;
 import java.util.regex.Pattern;
 
 public class User{
@@ -6,9 +7,8 @@ public class User{
     private String password;
     private String email;
     private String dob, gender, contactno;
-    
-    private Budget budget;
 
+    private Budget budget;
     private static User array[] = new User[20];
     private static int count =0;
 
@@ -21,14 +21,15 @@ public class User{
         this.contactno = contactno;
         this.password = password;
         this.email = email;
-
-        array[count] = new User(user_id, name, email, dob, password, gender, contactno);
-        count +=1;
+        
+        //array[count] = new User(user_id, name, email, dob, password, gender, contactno);
+        count++;
 
     }
 
     public static boolean validateUN(String userName){
-        String regx = "[A-Z]([a-z]+|\\s[a-z]+)";
+       // String regx = "[A-Z]([a-z]+|\\s[a-z]+)";
+        String regx = "^[A-Za-z][A-Za-z0-9_].{0,19}$";
         boolean out = Pattern.matches(regx, userName);
         return out;
     }
@@ -47,12 +48,15 @@ public class User{
 
     public static boolean checkUserName(String userName){
         boolean out = false;
+        
         for (int i=0; i<array.length;i++){
+            if (array[i] != null && array[i].username != null && array[i].username.equals(userName)) {
+
             if(array[i].username.equals(userName)){
                 out=true;
 
             }
-        }
+        }}
         return out;
     }
 

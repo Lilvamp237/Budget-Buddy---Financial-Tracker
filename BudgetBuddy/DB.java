@@ -1,9 +1,10 @@
+package BudgetBuddy;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DB {
-    private String url ="jdbc:mysql://localhost:3306/movie_theater";
+    private String url ="jdbc:mysql://localhost:3306/budgetbuddy";
     private String un="root";
     private String pw="";
     private Connection con;
@@ -15,7 +16,7 @@ public class DB {
     public Connection getCon(){
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");  
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, un, pw);
             System.out.println("sucessful");
         } catch (SQLException ex) {
