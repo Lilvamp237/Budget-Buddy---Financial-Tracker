@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Registration extends javax.swing.JFrame {
 
     /**
@@ -22,7 +24,7 @@ public class Registration extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
         confirm = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        signUp = new javax.swing.JButton();
         gender = new javax.swing.JComboBox<String>();
         year = new javax.swing.JComboBox<String>();
         month = new javax.swing.JComboBox<String>();
@@ -54,8 +56,8 @@ public class Registration extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("SIGN UP");
+        signUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUp.setText("SIGN UP");
 
         gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gender", "Male", "Female ", "Prefer Not To Say", " " }));
 
@@ -82,7 +84,7 @@ public class Registration extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(229, 229, 229)
-                        .addComponent(jButton1)))
+                        .addComponent(signUp)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(176, 176, 176)
@@ -137,7 +139,7 @@ public class Registration extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(telno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(signUp)
                 .addGap(41, 41, 41))
         );
 
@@ -153,6 +155,49 @@ public class Registration extends javax.swing.JFrame {
         );
 
         pack();
+
+
+        signUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String uname = username.getText();
+                String fname = firstname.getText();
+                String lname = lastname.getText();
+                String mail = email.getText();
+                String pass = password.getText();
+                String confPass = confirm.getText();
+                String gen = gender.getSelectedItem().toString();
+                String dob = year.getSelectedItem().toString() + "-" + month.getSelectedItem().toString() + "-" + date.getSelectedItem().toString();
+                String tel = telno.getText();
+                
+                // Create a new User object
+                User newUser = new User(uname, fname + " " + lname, dob, gen, tel, pass, mail);
+                
+                // Perform validation and registration
+                if (!User.validateUN(uname)) {
+                    JOptionPane.showMessageDialog(null, "Invalid username format!");
+                } else if (!User.validatePassword(pass)) {
+                    JOptionPane.showMessageDialog(null, "Invalid password format!");
+                } else if (!pass.equals(confPass)) {
+                    JOptionPane.showMessageDialog(null, "Passwords do not match!");
+                } else if (!User.validateEmail(mail)) {
+                    JOptionPane.showMessageDialog(null, "Invalid email format!");
+                } else if (User.checkUserName(uname)) {
+                    JOptionPane.showMessageDialog(null, "Username already exists!");
+                } else {
+                    // Insert the user data into the database
+                    DB db = new DB();
+                    if (db.execute("INSERT INTO user(username, name, dob, gender, contactno, password, email) VALUES ('" + uname + "', '" + fname + " " + lname + "', '" + dob + "', '" + gen + "', '" + tel + "', '" + pass + "', '" + mail + "')")) {
+                        JOptionPane.showMessageDialog(null, "Registration successful!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to register user!");
+                    }
+                    db.closeCon();
+                }
+            }
+        });
+
+
+
     }// </editor-fold>                        
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -161,7 +206,11 @@ public class Registration extends javax.swing.JFrame {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-    }                                       
+    }  
+    
+    private void signUpActionPerformed(java.awt.event.ActionEvent evt) {                                         
+           
+    }
 
     /**
      * @param args the command line arguments
@@ -204,7 +253,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstname;
     private javax.swing.JComboBox<String> gender;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton signUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lastname;

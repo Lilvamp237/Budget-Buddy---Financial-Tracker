@@ -1,7 +1,7 @@
 import java.util.regex.Pattern;
 
 public class User{
-    private String user_id;
+    private String username;
     private String name;
     private String password;
     private String email;
@@ -14,7 +14,7 @@ public class User{
 
     public User(String user_id, String name, String dob, String gender, String contactno, String password, String email) {
         //validate the inputs
-        this.user_id = user_id;
+        this.username = user_id;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
@@ -48,7 +48,7 @@ public class User{
     public static boolean checkUserName(String userName){
         boolean out = false;
         for (int i=0; i<array.length;i++){
-            if(array[i].user_id.equals(userName)){
+            if(array[i].username.equals(userName)){
                 out=true;
 
             }
