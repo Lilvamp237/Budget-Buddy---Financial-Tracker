@@ -182,13 +182,14 @@ public class Registration extends javax.swing.JFrame {
                 } else if (!User.validateEmail(mail)) {
                     JOptionPane.showMessageDialog(null, "Invalid email format!");
                 } else if (!User.validatePassword(pass)) {
+                    System.out.println(User.validatePassword(pass));
                     JOptionPane.showMessageDialog(null, "Invalid password format!");
                 } else if (!pass.equals(confPass)) {
                     JOptionPane.showMessageDialog(null, "Passwords do not match!");
                 } else {
                     // Insert the user data into the database
                     DB db = new DB();
-                    if (db.execute("INSERT INTO user(username, name, dob, gender, contactno, password, email) VALUES ('" + uname + "', '" + fname + " " + lname + "', '" + dob + "', '" + gen + "', '" + tel + "', '" + pass + "', '" + mail + "')")) {
+                    if (db.execute("INSERT INTO user(username, name, dob, gender, contactno, passw, email) VALUES ('" + uname.trim() + "', '" + fname.trim() + " " + lname.trim() + "', '" + dob.trim() + "', '" + gen.trim() + "', '" + tel.trim() + "', '" + pass.trim() + "', '" + mail.trim() + "')")) {
                         JOptionPane.showMessageDialog(null, "Registration successful!");
                     } else {
                         JOptionPane.showMessageDialog(null, "Failed to register user!");

@@ -1,4 +1,6 @@
 package BudgetBuddy;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 public class User{
@@ -35,7 +37,7 @@ public class User{
     }
     public static boolean validatePassword(String password){
         //one digit, one capital, one simple, one special character with min length 8 and max length 15
-        String regx = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,15}$";
+        String regx = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,15}$";
         boolean out = Pattern.matches(regx, password);
         return out;
     }
@@ -48,15 +50,18 @@ public class User{
 
     public static boolean checkUserName(String userName){
         boolean out = false;
+                
+        // Perform validation against the database, checks if the username exists already
+        DB db = new DB();
+        ResultSet rs = db.getData("SELECT * FROM `user` WHERE username= '" + userName.trim() + "'");
+        try {
+            out = rs.next();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            db.closeCon();
+        }
         
-        for (int i=0; i<array.length;i++){
-            if (array[i] != null && array[i].username != null && array[i].username.equals(userName)) {
-
-            if(array[i].username.equals(userName)){
-                out=true;
-
-            }
-        }}
         return out;
     }
 

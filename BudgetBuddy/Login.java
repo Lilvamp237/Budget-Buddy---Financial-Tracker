@@ -188,13 +188,14 @@ public class Login extends javax.swing.JFrame {
                 
                 // Perform validation against the database
                 DB db = new DB();
-                ResultSet rs = db.getData("SELECT * FROM user WHERE username='" + uname + "' AND password='" + pass + "'");
+                ResultSet rs = db.getData("SELECT * FROM `user` WHERE username= '" + uname.trim() + "' AND passw= '" + pass.trim() + "'");
                 try {
-                    if (rs.next()) {
+                    boolean loginOk = rs.next();
+                    if (loginOk==true) {
                         // Login successful, navigate to the main application screen
                         JOptionPane.showMessageDialog(null, "Login successful!");
                         // Add code here to navigate to the main application screen
-                    } else {
+                    } else if (loginOk==false){
                         // Login failed, display error message
                         JOptionPane.showMessageDialog(null, "Invalid username or password!");
                     }
