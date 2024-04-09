@@ -176,14 +176,14 @@ public class Registration extends javax.swing.JFrame {
                 
                 // Perform validation and registration
                 if (!User.validateUN(uname)) {
-                    JOptionPane.showMessageDialog(null, "Invalid username format!");
+                    JOptionPane.showMessageDialog(null, "Invalid username format!\nCan contain only alphabetic characters and numbers.");
                 } else if (User.checkUserName(uname)) {
-                    JOptionPane.showMessageDialog(null, "Username already exists!");
+                    JOptionPane.showMessageDialog(null, "Username already exists!\nTry another.");
                 } else if (!User.validateEmail(mail)) {
-                    JOptionPane.showMessageDialog(null, "Invalid email format!");
+                    JOptionPane.showMessageDialog(null, "Invalid email format!\nExample: email@service.com");
                 } else if (!User.validatePassword(pass)) {
                     System.out.println(User.validatePassword(pass));
-                    JOptionPane.showMessageDialog(null, "Invalid password format!");
+                    JOptionPane.showMessageDialog(null, "Invalid password format!\nMust contain Upper letters, Lower letters, numbers and special characters.");
                 } else if (!pass.equals(confPass)) {
                     JOptionPane.showMessageDialog(null, "Passwords do not match!");
                 } else {

@@ -30,7 +30,6 @@ public class User{
     }
 
     public static boolean validateUN(String userName){
-       // String regx = "[A-Z]([a-z]+|\\s[a-z]+)";
         String regx = "^[A-Za-z][A-Za-z0-9_].{0,19}$";
         boolean out = Pattern.matches(regx, userName);
         return out;
