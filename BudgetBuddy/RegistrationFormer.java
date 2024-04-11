@@ -2,12 +2,12 @@ package BudgetBuddy;
 import javax.swing.JOptionPane;
 
 
-public class Registration extends javax.swing.JFrame {
+public class RegistrationFormer extends javax.swing.JFrame {
 
     /**
      * Creates new form Frame2
      */
-    public Registration() {
+    public RegistrationFormer() {
         initComponents();
     }
 
@@ -172,7 +172,7 @@ public class Registration extends javax.swing.JFrame {
                 String tel = telno.getText();
                 
                 // Create a new User object
-                User newUser = new User(uname, fname + " " + lname, dob, gen, tel, pass, mail);
+                User newUser = new User(uname, fname + " " + lname, dob, gen, pass, mail);
                 
                 // Perform validation and registration
                 if (!User.validateUN(uname)) {
@@ -232,20 +232,20 @@ public class Registration extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationFormer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationFormer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationFormer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrationFormer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registration().setVisible(true);
+                new RegistrationFormer().setVisible(true);
             }
         });
     }

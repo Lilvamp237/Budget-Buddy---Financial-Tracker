@@ -8,19 +8,19 @@ public class User{
     private String name;
     private String password;
     private String email;
-    private String dob, gender, contactno;
+    private String dob, gender;
 
     private Budget budget;
     private static User array[] = new User[20];
     private static int count =0;
 
-    public User(String user_id, String name, String dob, String gender, String contactno, String password, String email) {
+    public User(String user_id, String name, String dob, String gender, String password, String email) {
         //validate the inputs
         this.username = user_id;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
-        this.contactno = contactno;
+        //this.contactno = contactno;
         this.password = password;
         this.email = email;
         
