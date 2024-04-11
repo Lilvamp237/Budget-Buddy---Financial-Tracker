@@ -237,7 +237,7 @@ public class Register extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid email format!\nExample: email@service.com");
                 } else if (!User.validatePassword(pass)) {
                     System.out.println(User.validatePassword(pass));
-                    JOptionPane.showMessageDialog(null, "Invalid password format!\nMust contain Upper letters, Lower letters, numbers and special characters.");
+                    JOptionPane.showMessageDialog(null, "Invalid password format!\nMust contain Upper letters, Lower letters, numbers and special characters.\nLength of 8-15");
                 } else if (!pass.equals(confPass)) {
                     JOptionPane.showMessageDialog(null, "Passwords do not match!");
                 } else {
