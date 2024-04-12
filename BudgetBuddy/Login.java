@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
  */
 
 public class Login extends javax.swing.JFrame {
-
     /**
      * Creates new form LoginPage
      */
@@ -172,6 +171,9 @@ public class Login extends javax.swing.JFrame {
                         // Login successful, navigate to the main application screen
                         JOptionPane.showMessageDialog(null, "Login successful!");
                         // Add code here to navigate to the main application screen
+                        dispose();
+                        Home home=new Home(uname);
+                        home.setVisible(true);
                     } else if (loginOk==false){
                         // Login failed, display error message
                         JOptionPane.showMessageDialog(null, "Invalid username or password!");

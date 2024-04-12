@@ -55,6 +55,7 @@ public class User{
         ResultSet rs = db.getData("SELECT * FROM `user` WHERE username= '" + userName.trim() + "'");
         try {
             out = rs.next();
+            System.out.println(out);
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
