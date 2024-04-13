@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,11 @@ import java.awt.event.MouseEvent;
 public class Home extends javax.swing.JFrame {
 
     private String uname;
+
+    public Home() {
+        this.uname = "";
+        initComponents();
+    }
 
     public Home(String uname) {
         this.uname = uname;
@@ -370,6 +376,48 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        home.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Perform the action when the label is clicked
+                // For example, open a new frame
+                JOptionPane.showMessageDialog(null, "Already in the homepage!");
+            }
+        });
+
+        profile.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Perform the action when the label is clicked
+                // For example, open a new frame
+                dispose();
+                Add add = new Add(uname);
+                add.setVisible(true);
+            }
+        });
+
+        report.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Perform the action when the label is clicked
+                // For example, open a new frame
+                dispose();
+                Add add = new Add(uname);
+                add.setVisible(true);
+            }
+        });
+
+        currents.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Perform the action when the label is clicked
+                // For example, open a new frame
+                dispose();
+                Add add = new Add(uname);
+                add.setVisible(true);
+            }
+        });
+
     }// </editor-fold>                        
 
     /**
@@ -402,7 +450,7 @@ public class Home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home("").setVisible(true);
+                new Home().setVisible(true);
             }
         });
         

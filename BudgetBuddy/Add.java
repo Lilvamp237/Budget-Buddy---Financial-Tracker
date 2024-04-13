@@ -11,6 +11,11 @@ public class Add extends javax.swing.JFrame {
      */
     private String uname;
 
+    public Add() {
+        this.uname =  "";
+        initComponents();
+    }
+
     public Add(String uname) {
         this.uname =  uname;
         initComponents();
@@ -213,7 +218,7 @@ public class Add extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Add("").setVisible(true);
+                new Add().setVisible(true);
             }
         });
     }

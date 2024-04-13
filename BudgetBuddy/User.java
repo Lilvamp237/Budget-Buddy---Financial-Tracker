@@ -14,6 +14,11 @@ public class User{
     private static User array[] = new User[20];
     private static int count =0;
 
+    public User(String user_id) {
+        //validate the inputs
+        this.username = user_id;
+    }
+
     public User(String user_id, String name, String dob, String gender, String password, String email) {
         //validate the inputs
         this.username = user_id;
