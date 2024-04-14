@@ -9,15 +9,15 @@ public class Add extends javax.swing.JFrame {
     /**
      * Creates new form Frame3
      */
-    private String uname;
+    private String uname; 
 
     public Add() {
-        this.uname =  "";
+        this.uname = "";
         initComponents();
     }
 
     public Add(String uname) {
-        this.uname =  uname;
+        this.uname = uname;
         initComponents();
     }
 
@@ -31,6 +31,7 @@ public class Add extends javax.swing.JFrame {
     private void initComponents() {
 
         title = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         plus = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -41,23 +42,23 @@ public class Add extends javax.swing.JFrame {
         home3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         home2 = new javax.swing.JLabel();
+        transactionDescription = new javax.swing.JLabel();
+        budgetDescription = new javax.swing.JLabel();
+        transactionButton = new javax.swing.JButton();
+        budgetButton = new javax.swing.JButton();
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new AbsoluteLayout());
 
         title.setBackground(new java.awt.Color(0, 204, 204));
+        title.setLayout(new AbsoluteLayout());
 
-        javax.swing.GroupLayout titleLayout = new javax.swing.GroupLayout(title);
-        title.setLayout(titleLayout);
-        titleLayout.setHorizontalGroup(
-            titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-        titleLayout.setVerticalGroup(
-            titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
+        jLabel2.setFont(new java.awt.Font("Candara", 1, 40)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ADD NEW");
+        title.add(jLabel2, new AbsoluteConstraints(90, 20, 350, 84));
 
         getContentPane().add(title, new AbsoluteConstraints(0, 0, 550, 110));
 
@@ -70,6 +71,11 @@ public class Add extends javax.swing.JFrame {
 
         home1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home1.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/home.png"))); // NOI18N
+        home1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                home1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -91,6 +97,11 @@ public class Add extends javax.swing.JFrame {
 
         home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/user.png"))); // NOI18N
+        home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,6 +123,11 @@ public class Add extends javax.swing.JFrame {
 
         home3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home3.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/wallet.png"))); // NOI18N
+        home3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                home3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -177,6 +193,38 @@ public class Add extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 630, 550, 70));
 
+        transactionDescription.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        transactionDescription.setText("ADD YOUR INCOMES & EXPENSES");
+        getContentPane().add(transactionDescription, new AbsoluteConstraints(130, 220, 260, 30));
+
+        budgetDescription.setBackground(new java.awt.Color(255, 255, 255));
+        budgetDescription.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        budgetDescription.setText("SET BUDGET FOR ALL CATEGORIES");
+        getContentPane().add(budgetDescription, new AbsoluteConstraints(130, 420, 290, 30));
+
+        transactionButton.setBackground(new java.awt.Color(255, 255, 255));
+        transactionButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        transactionButton.setText("TRANSACTION");
+        transactionButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        transactionButton.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        transactionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transactionButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(transactionButton, new AbsoluteConstraints(110, 160, 340, 120));
+
+        budgetButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        budgetButton.setText("BUDGET");
+        budgetButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        budgetButton.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        budgetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                budgetButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(budgetButton, new AbsoluteConstraints(110, 360, 340, 120));
+
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bg image.jpg"))); // NOI18N
         image.setText("jLabel9");
         image.setToolTipText("");
@@ -184,6 +232,36 @@ public class Add extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
+
+    private void home1MouseClicked(java.awt.event.MouseEvent evt) {   
+        this.dispose();                                
+        Home frame=new Home(uname);
+        frame.setVisible(true);
+    }                                  
+
+    private void transactionButtonActionPerformed(java.awt.event.ActionEvent evt) {   
+        this.dispose();                                                
+        AddIncome frame=new AddIncome(uname);
+        frame.setVisible(true);
+    }                                                 
+
+    private void budgetButtonActionPerformed(java.awt.event.ActionEvent evt) {  
+        //this.dispose();                                            
+        //Frame6 frame=new Frame6 ();
+        //frame.setVisible(true);
+    }                                            
+
+    private void home3MouseClicked(java.awt.event.MouseEvent evt) {     
+        //this.dispose();                               
+        //Frame7 frame=new Frame7 ();
+        //frame.setVisible(true);
+    }                                  
+
+    private void homeMouseClicked(java.awt.event.MouseEvent evt) {  
+        //this.dispose();                                 
+        //Frame8 frame=new Frame8 ();
+        //frame.setVisible(true);
+    }                                 
 
     /**
      * @param args the command line arguments
@@ -214,6 +292,10 @@ public class Add extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -224,11 +306,14 @@ public class Add extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton budgetButton;
+    private javax.swing.JLabel budgetDescription;
     private javax.swing.JLabel home;
     private javax.swing.JLabel home1;
     private javax.swing.JLabel home2;
     private javax.swing.JLabel home3;
     private javax.swing.JLabel image;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -236,5 +321,7 @@ public class Add extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel plus;
     private javax.swing.JPanel title;
+    private javax.swing.JButton transactionButton;
+    private javax.swing.JLabel transactionDescription;
     // End of variables declaration                   
 }
