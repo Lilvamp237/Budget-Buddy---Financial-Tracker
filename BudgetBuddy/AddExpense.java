@@ -10,7 +10,7 @@ public class AddExpense extends javax.swing.JFrame {
     private static String currentamount = "";
 
     /**
-     * Creates new form Frame3
+     * Creates new form AddExpense
      */
     private String uname; 
 

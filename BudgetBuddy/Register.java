@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Register extends javax.swing.JFrame {
     /**
-     * Creates new form RegistrationPage
+     * Creates new form Register
      */
     public Register() {
         initComponents();

@@ -10,7 +10,7 @@ public class AddIncome extends javax.swing.JFrame {
     private static String currentamount = "";
     private String uname;
     /**
-     * Creates new form Frame3
+     * Creates new form AddIncome
      */
     public AddIncome() {
         this.uname = "";

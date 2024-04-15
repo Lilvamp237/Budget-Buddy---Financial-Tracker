@@ -7,7 +7,7 @@ package BudgetBuddy;
 public class Add extends javax.swing.JFrame {
 
     /**
-     * Creates new form Frame3
+     * Creates new form Add
      */
     private String uname; 
 
