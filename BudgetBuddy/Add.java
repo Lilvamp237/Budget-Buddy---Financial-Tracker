@@ -247,20 +247,20 @@ public class Add extends javax.swing.JFrame {
 
     private void budgetButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         //this.dispose();                                            
-        //Frame6 frame=new Frame6 ();
+        //Frame6 frame=new Frame6 (uname);
         //frame.setVisible(true);
     }                                            
 
     private void home3MouseClicked(java.awt.event.MouseEvent evt) {     
         //this.dispose();                               
-        //Frame7 frame=new Frame7 ();
+        //Frame7 frame=new Frame7 (uname);
         //frame.setVisible(true);
     }                                  
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {  
-        //this.dispose();                                 
-        //Frame8 frame=new Frame8 ();
-        //frame.setVisible(true);
+        this.dispose();                                 
+        Profile frame=new Profile(uname);
+        frame.setVisible(true);
     }                                 
 
     /**
