@@ -73,38 +73,43 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 550, 140));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255,80));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255,100));
 
-        UName.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
+        UName.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
         UName.setText("USERNAME");
 
-        Password.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
+        Password.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
         Password.setText("PASSWORD");
 
-        username.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        username.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
         username.setText(" ");
 
-        password.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        password.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
 
-        logInButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        logInButton.setFont(new java.awt.Font("Candara", 1, 20)); // NOI18N
+        logInButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        
         logInButton.setText("LOG IN");
 
-        jLabel6.setFont(new java.awt.Font("Candara", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         jLabel6.setText("Don't have an account?");
+        
+        
 
         signUpButton.setForeground(new java.awt.Color(0, 0, 204));
+        signUpButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         signUpButton.setText("Sign Up");
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpButtonActionPerformed(evt);
             }
         });
-//hello sasi
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
