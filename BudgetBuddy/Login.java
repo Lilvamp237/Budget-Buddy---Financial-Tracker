@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
  */
 
 public class Login extends javax.swing.JFrame {
+
+    User user;
     /**
      * Creates new form Login
      */
@@ -161,28 +163,21 @@ public class Login extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 String uname = username.getText();
                 String pass = new String(password.getPassword());
+
+                user = new User(uname, pass);
                 
-                // Perform validation against the database
-                DB db = new DB();
-                ResultSet rs = db.getData("SELECT * FROM `user` WHERE username= '" + uname.trim() + "' AND passw= '" + pass.trim() + "'");
-                try {
-                    boolean loginOk = rs.next();
-                    if (loginOk==true) {
-                        // Login successful, navigate to the main application screen
-                        JOptionPane.showMessageDialog(null, "Login successful!");
-                        // Add code here to navigate to the main application screen
-                        dispose();
-                        Home home=new Home(uname);
-                        home.setVisible(true);
-                    } else if (loginOk==false){
-                        // Login failed, display error message
-                        JOptionPane.showMessageDialog(null, "Invalid username or password!");
-                    }
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "An error occurred while logging in!");
-                    ex.printStackTrace();
-                } finally {
-                    db.closeCon();
+                
+                if (user.loginUser()) {
+                    // Login successful, navigate to the main application screen
+                    JOptionPane.showMessageDialog(null, "Login successful!");
+                    // Add code here to navigate to the main application screen
+                    dispose();
+                    user.setUserDetails();
+                    Home home=new Home(user);
+                    home.setVisible(true);
+                } else if (user.loginUser()==false){
+                    // Login failed, display error message
+                    JOptionPane.showMessageDialog(null, "Invalid username or password!");
                 }
             }
         });

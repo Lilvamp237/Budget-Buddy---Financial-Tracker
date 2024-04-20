@@ -17,9 +17,15 @@ import java.awt.event.MouseEvent;
 public class Home extends javax.swing.JFrame {
 
     private String uname;
+    private User user;
 
     public Home() {
         this.uname = "";
+        initComponents();
+    }
+
+    public Home(User user) {
+        this.user = user;
         initComponents();
     }
 

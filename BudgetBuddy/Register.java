@@ -242,7 +242,7 @@ public class Register extends javax.swing.JFrame {
                 } else {
                     // Insert the user data into the database
                     DB db = new DB();
-                    if (db.execute("INSERT INTO user(username, name, dob, gender, passw, email) VALUES ('" + uname.trim() + "', '" + fname.trim() + " " + lname.trim() + "', '" + dob.trim() + "', '" + gen.trim() + "', '" + pass.trim() + "', '" + mail.trim() + "')")) {
+                    if (newUser.registerUser()) {
                         JOptionPane.showMessageDialog(null, "Registration successful!");
                         dispose();
                         Login login=new Login();

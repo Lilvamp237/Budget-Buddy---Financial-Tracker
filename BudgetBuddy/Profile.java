@@ -365,7 +365,7 @@ public class Profile extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Home add = new Home(uname);
+                Home add = new Home();
                 add.setVisible(true);
             }
         });
