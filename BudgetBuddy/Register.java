@@ -46,7 +46,7 @@ public class Register extends javax.swing.JFrame {
         setTitle("Sign Up page");
         getContentPane().setLayout(new AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255,50));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255,80));
 
         CreateAnAccount.setFont(new java.awt.Font("Candara", 1, 36)); // NOI18N
         CreateAnAccount.setText("Create An Account");
@@ -63,7 +63,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        signUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUp.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         signUp.setText("SIGN UP");
         signUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,28 +85,28 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        FName1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        FName1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         FName1.setText("First Name:");
 
-        LName1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        LName1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         LName1.setText("Last Name:");
 
-        UName1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        UName1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         UName1.setText("Username:");
 
-        Email1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        Email1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         Email1.setText("Email:");
 
-        Password1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        Password1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         Password1.setText("Password:");
 
-        ConfirmPW1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        ConfirmPW1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         ConfirmPW1.setText("Confirm Password:");
 
-        Birthdate.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        Birthdate.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         Birthdate.setText("Birth Date: ");
 
-        jLabel1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         jLabel1.setText("Gender:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -114,10 +114,9 @@ public class Register extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                        .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(FName1)
                             .addComponent(Email1)
@@ -127,7 +126,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(Birthdate)
                     .addComponent(ConfirmPW1)
                     .addComponent(jLabel1))
-                .addGap(24, 24, 24)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(confirm, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(email)
@@ -152,9 +151,9 @@ public class Register extends javax.swing.JFrame {
                         .addGap(93, 93, 93)
                         .addComponent(CreateAnAccount))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
+                        .addGap(173, 173, 173)
                         .addComponent(signUp)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
