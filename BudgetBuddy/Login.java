@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Buddy)
-                .addGap(120, 120, 120))
+                .addGap(103, 103, 103))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,12 +73,12 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 550, 140));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255,80));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255,150));
 
-        UName.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
+        UName.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
         UName.setText("USERNAME");
 
-        Password.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
+        Password.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
         Password.setText("PASSWORD");
 
         username.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -91,12 +91,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        logInButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        logInButton.setFont(new java.awt.Font("Candara", 1, 20)); // NOI18N
         logInButton.setText("LOG IN");
 
-        jLabel6.setFont(new java.awt.Font("Candara", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Candara", 3, 18)); // NOI18N
         jLabel6.setText("Don't have an account?");
 
+        signUpButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         signUpButton.setForeground(new java.awt.Color(0, 0, 204));
         signUpButton.setText("Sign Up");
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +105,7 @@ public class Login extends javax.swing.JFrame {
                 signUpButtonActionPerformed(evt);
             }
         });
-//hello sasi
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -112,46 +113,48 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addGap(118, 118, 118)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UName)
-                            .addComponent(Password))
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(Password)
+                                .addGap(49, 49, 49)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(UName)
+                                .addGap(52, 52, 52)
+                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
+                        .addGap(143, 143, 143)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(logInButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(logInButton)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(signUpButton)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(username))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Password)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Password))
-                .addGap(18, 18, 18)
+                    .addComponent(UName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logInButton)
-                .addGap(22, 22, 22)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(signUpButton))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(signUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
-        getContentPane().add(jPanel3, new AbsoluteConstraints(0, 480, -1, 220));
+        getContentPane().add(jPanel3, new AbsoluteConstraints(0, 480, 550, 220));
 
-        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/login.jpg"))); // NOI18N
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bb.login.jpg"))); // NOI18N
         image.setText("jLabel1");
         getContentPane().add(image, new AbsoluteConstraints(-10, -60, -1, -1));
 
@@ -173,7 +176,7 @@ public class Login extends javax.swing.JFrame {
                     // Add code here to navigate to the main application screen
                     dispose();
                     user.setUserDetails();
-                    Home home=new Home(user);
+                    Home home=new Home(uname);
                     home.setVisible(true);
                 } else if (user.loginUser()==false){
                     // Login failed, display error message
