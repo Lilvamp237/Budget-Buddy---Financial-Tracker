@@ -31,3 +31,14 @@ foreign key(username) references user(username));
 
 ALTER TABLE expenses AUTO_INCREMENT=1001;
 
+USE budgetbuddy;
+CREATE TABLE budget
+(expenseid INT(12) auto_increment NOT NULL primary key,
+username VARCHAR(30),
+category VARCHAR(30),
+description TEXT,
+amount DECIMAL(12,2),
+foreign key(username) references user(username));
+
+ALTER TABLE expenses AUTO_INCREMENT=1001;
+

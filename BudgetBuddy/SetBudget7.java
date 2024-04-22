@@ -6,6 +6,7 @@ package BudgetBuddy;
  */
 public class SetBudget7 extends javax.swing.JFrame {
 
+    private static String currentbudget = "";
     private User user;
     private String uname;
     /**
@@ -428,7 +429,7 @@ public class SetBudget7 extends javax.swing.JFrame {
 
         EnterAmount.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         EnterAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EnterAmount.setText("Enter Amount:");
+        EnterAmount.setText("Enter typeAmount:");
         getContentPane().add(EnterAmount, new AbsoluteConstraints(10, 150, 210, 30));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
@@ -463,51 +464,82 @@ public class SetBudget7 extends javax.swing.JFrame {
 
     private void twoActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"2");
     }                                   
 
     private void fourActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"4");
     }                                    
 
     private void threeActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"3");
     }                                     
 
     private void fiveActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"5");
     }                                    
 
     private void sixActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"6");
     }                                   
 
     private void sevenActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"7");
     }                                     
 
     private void eightActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"8");
     }                                     
 
     private void nineActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"9");
     }                                    
 
     private void decimalActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+".");
     }                                       
 
     private void zeroActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"0");
     }                                    
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
+        String currentText = typeAmount.getText();
+        // Check if the current text is not empty
+        if (!currentText.isEmpty()) {
+            // Remove the last character from the current text
+            currentText = currentText.substring(0, currentText.length() - 1);
+            // Update the typeAmount field with the modified text
+            typeAmount.setText(currentText);
+        }
     }                                      
 
     private void oneActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
+        currentbudget = typeAmount.getText();
+        typeAmount.setText(currentbudget+"1");
     }                                   
+        
 
     private void categoryActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
@@ -568,68 +600,6 @@ public class SetBudget7 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SetBudget7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
