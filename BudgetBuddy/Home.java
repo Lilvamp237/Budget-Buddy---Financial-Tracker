@@ -80,10 +80,12 @@ public class Home extends javax.swing.JFrame {
         photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         name1.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
+        name1.setForeground(new java.awt.Color(255, 255, 255));
         name1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        name1.setText("!");
+        name1.setText("...!");
 
         hi.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
+        hi.setForeground(new java.awt.Color(255, 255, 255));
         hi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hi.setText("HI, ");
 
