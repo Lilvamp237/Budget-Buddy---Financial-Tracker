@@ -14,8 +14,8 @@ public class Profile extends javax.swing.JFrame {
     /**
      * Creates new form Profile
      */
+    private String uname; 
     private User userr;
-    private String uname;
 
     String fullName = ""; // Initialize fullName variable
     String emaill = "";
@@ -29,6 +29,11 @@ public class Profile extends javax.swing.JFrame {
 
     public Profile(String uname) {
         this.uname = uname;
+        initComponents();
+    }
+
+    public Profile(User user) {
+        this.userr = user;
         initComponents();
     }
 
@@ -218,6 +223,8 @@ public class Profile extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1, new AbsoluteConstraints(0, 630, 550, 70));
+
         boolean out;
         // Perform validation against the database, checks if the username exists already
         DB db = new DB();
@@ -237,9 +244,6 @@ public class Profile extends javax.swing.JFrame {
         } finally {
             db.closeCon();
         }
-        
-
-        getContentPane().add(jPanel1, new AbsoluteConstraints(0, 630, 550, 70));
 
         user.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/userProfile.png"))); // NOI18N
         getContentPane().add(user, new AbsoluteConstraints(200, 120, 150, 140));
@@ -274,7 +278,6 @@ public class Profile extends javax.swing.JFrame {
 
         DOBsep.setBackground(new java.awt.Color(0, 0, 0));
         DOBsep.setForeground(new java.awt.Color(0, 0, 0));
-
 
         name.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
         name.setText(fullName);
@@ -359,6 +362,7 @@ public class Profile extends javax.swing.JFrame {
         getContentPane().add(image, new AbsoluteConstraints(0, 0, 550, 700));
 
         pack();
+        setLocationRelativeTo(null);
 
         home1.addMouseListener(new MouseAdapter() {
             @Override
@@ -366,7 +370,18 @@ public class Profile extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Home add = new Home(uname);
+                Home add = new Home();
+                add.setVisible(true);
+            }
+        });
+
+        home3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Perform the action when the label is clicked
+                // For example, open a new frame
+                dispose();
+                Budget add = new Budget(uname);
                 add.setVisible(true);
             }
         });
@@ -378,10 +393,11 @@ public class Profile extends javax.swing.JFrame {
         frame.setVisible(true);
     }                                 
     
-    private void home3MouseClicked(java.awt.event.MouseEvent evt) {                                   
-        //Budget frame=new Budget(uname);
-        //frame.setVisible(true);
-    }                                  
+    /*private void home3MouseClicked(java.awt.event.MouseEvent evt) {  
+        this.dispose();                         
+        Budget frame=new Budget(uname);
+        frame.setVisible(true);
+    } */                                 
 
     /*private void home1MouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                 

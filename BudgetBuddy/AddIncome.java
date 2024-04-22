@@ -23,6 +23,11 @@ public class AddIncome extends javax.swing.JFrame {
         initComponents();
     }
 
+    public AddIncome(User user) {
+        this.user = user;
+        initComponents();
+    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
@@ -662,13 +667,13 @@ public class AddIncome extends javax.swing.JFrame {
 
     private void home3MouseClicked(java.awt.event.MouseEvent evt) { 
         this.dispose();                                   
-        Budget frame=new Budget();
+        Budget frame=new Budget(uname);
         frame.setVisible(true);
     } 
     
     private void homeMouseClicked(java.awt.event.MouseEvent evt) { 
         this.dispose();                                 
-        Profile frame=new Profile();
+        Profile frame=new Profile(uname);
         frame.setVisible(true);
     } 
 

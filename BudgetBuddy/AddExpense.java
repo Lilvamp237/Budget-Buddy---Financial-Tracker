@@ -664,13 +664,13 @@ public class AddExpense extends javax.swing.JFrame {
     
     private void home3MouseClicked(java.awt.event.MouseEvent evt) { 
         this.dispose();                                  
-        Budget frame=new Budget();
+        Budget frame=new Budget(uname);
         frame.setVisible(true);
     }                                  
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {
         this.dispose();                                  
-        Profile frame=new Profile();
+        Profile frame=new Profile(uname);
         frame.setVisible(true);
     }                                 
 
