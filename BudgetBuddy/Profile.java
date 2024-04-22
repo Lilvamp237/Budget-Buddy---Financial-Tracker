@@ -14,7 +14,8 @@ public class Profile extends javax.swing.JFrame {
     /**
      * Creates new form Profile
      */
-    private String uname; 
+    private User userr;
+    private String uname;
 
     String fullName = ""; // Initialize fullName variable
     String emaill = "";
@@ -365,7 +366,7 @@ public class Profile extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Home add = new Home();
+                Home add = new Home(uname);
                 add.setVisible(true);
             }
         });

@@ -11,7 +11,8 @@ import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-    User user;
+    private User user;
+    private String uname;
     /**
      * Creates new form Login
      */
@@ -192,7 +193,7 @@ public class Login extends javax.swing.JFrame {
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         this.dispose();
-        Register register=new Register ();
+        Register register=new Register();
         register.setVisible(true);
     }                                            
 

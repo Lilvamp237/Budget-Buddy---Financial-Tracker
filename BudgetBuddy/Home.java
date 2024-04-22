@@ -421,7 +421,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Add add = new Add(uname);
+                Budget add = new Budget(uname);
                 add.setVisible(true);
             }
         });

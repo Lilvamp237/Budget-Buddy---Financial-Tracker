@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
  */
 public class AddIncome extends javax.swing.JFrame {
     private static String currentamount = "";
+    private User user;
     private String uname;
     /**
      * Creates new form AddIncome
@@ -84,26 +85,22 @@ public class AddIncome extends javax.swing.JFrame {
         jPanel1.setLayout(new AbsoluteLayout());
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new AbsoluteLayout());
 
         income.setBackground(new java.awt.Color(255, 255, 255));
         income.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         income.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         income.setText("INCOME");
+        jPanel8.add(income, new AbsoluteConstraints(0, 0, 280, 58));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(income, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(income, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel8, new AbsoluteConstraints(12, 0, -1, -1));
+        jPanel1.add(jPanel8, new AbsoluteConstraints(-3, 0, 280, -1));
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel9MouseEntered(evt);
+            }
+        });
 
         expense.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         expense.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -113,6 +110,12 @@ public class AddIncome extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 expenseMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                expenseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                expenseMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -120,8 +123,8 @@ public class AddIncome extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(expense, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addComponent(expense, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,6 +187,11 @@ public class AddIncome extends javax.swing.JFrame {
 
         home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/user.png"))); // NOI18N
+        home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -205,6 +213,11 @@ public class AddIncome extends javax.swing.JFrame {
 
         home3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home3.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/wallet.png"))); // NOI18N
+        home3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                home3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -223,6 +236,7 @@ public class AddIncome extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
         home2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home2.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/stat.png"))); // NOI18N
 
@@ -477,7 +491,7 @@ public class AddIncome extends javax.swing.JFrame {
 
         amount.setFont(new java.awt.Font("Times New Roman", 0, 40)); // NOI18N
         amount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        amount.setText("");
+        amount.setText("00");
         getContentPane().add(amount, new AbsoluteConstraints(210, 120, 290, 70));
 
         jLabel1.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
@@ -487,9 +501,15 @@ public class AddIncome extends javax.swing.JFrame {
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bg image.jpg"))); // NOI18N
         image.setText("jLabel9");
         image.setToolTipText("");
+        image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imageMouseEntered(evt);
+            }
+        });
         getContentPane().add(image, new AbsoluteConstraints(0, 0, 550, 700));
 
         pack();
+        setLocationRelativeTo(null);
 
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -526,7 +546,11 @@ public class AddIncome extends javax.swing.JFrame {
                 }
             }
         });
-    }// </editor-fold>                        
+    }// </editor-fold> 
+    
+    private void imageMouseEntered(java.awt.event.MouseEvent evt) {                                   
+        // TODO add your handling code here:
+    } 
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
@@ -634,13 +658,39 @@ public class AddIncome extends javax.swing.JFrame {
         this.dispose();                                   
         Home frame=new Home(uname);
         frame.setVisible(true);
-    }                                  
+    } 
+
+    private void home3MouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                   
+        Budget frame=new Budget();
+        frame.setVisible(true);
+    } 
+    
+    private void homeMouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                 
+        Profile frame=new Profile();
+        frame.setVisible(true);
+    } 
 
     private void plusMouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                 
         Add frame=new Add(uname);
         frame.setVisible(true);
-    }                                 
+    }      
+    
+    private void jPanel9MouseEntered(java.awt.event.MouseEvent evt) {                                     
+        
+    }                                                                     
+
+    private void expenseMouseEntered(java.awt.event.MouseEvent evt) {                                     
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(0,204,204));
+    }                                    
+
+    private void expenseMouseExited(java.awt.event.MouseEvent evt) {                                    
+        jPanel9.setBackground(new java.awt.Color(0,204,204));
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+    }    
 
     /**
      * @param args the command line arguments

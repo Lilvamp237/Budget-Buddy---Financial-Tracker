@@ -9,7 +9,8 @@ public class Add extends javax.swing.JFrame {
     /**
      * Creates new form Add
      */
-    private String uname; 
+    private User user;
+    private String uname;
 
     public Add() {
         this.uname = "";
@@ -18,6 +19,11 @@ public class Add extends javax.swing.JFrame {
 
     public Add(String uname) {
         this.uname = uname;
+        initComponents();
+    }
+
+    public Add(User user) {
+        this.user = user;
         initComponents();
     }
 
@@ -58,7 +64,7 @@ public class Add extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ADD NEW");
-        title.add(jLabel2, new AbsoluteConstraints(90, 20, 350, 84));
+        title.add(jLabel2, new AbsoluteConstraints(100, 20, 350, 84));
 
         getContentPane().add(title, new AbsoluteConstraints(0, 0, 550, 110));
 
@@ -195,12 +201,12 @@ public class Add extends javax.swing.JFrame {
 
         transactionDescription.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         transactionDescription.setText("ADD YOUR INCOMES & EXPENSES");
-        getContentPane().add(transactionDescription, new AbsoluteConstraints(130, 220, 260, 30));
+        getContentPane().add(transactionDescription, new AbsoluteConstraints(130, 240, 260, 30));
 
         budgetDescription.setBackground(new java.awt.Color(255, 255, 255));
         budgetDescription.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         budgetDescription.setText("SET BUDGET FOR ALL CATEGORIES");
-        getContentPane().add(budgetDescription, new AbsoluteConstraints(130, 420, 290, 30));
+        getContentPane().add(budgetDescription, new AbsoluteConstraints(130, 440, 290, 30));
 
         transactionButton.setBackground(new java.awt.Color(255, 255, 255));
         transactionButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
@@ -212,7 +218,7 @@ public class Add extends javax.swing.JFrame {
                 transactionButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(transactionButton, new AbsoluteConstraints(110, 160, 340, 120));
+        getContentPane().add(transactionButton, new AbsoluteConstraints(110, 180, 340, 120));
 
         budgetButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         budgetButton.setText("BUDGET");
@@ -223,7 +229,7 @@ public class Add extends javax.swing.JFrame {
                 budgetButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(budgetButton, new AbsoluteConstraints(110, 360, 340, 120));
+        getContentPane().add(budgetButton, new AbsoluteConstraints(110, 380, 340, 120));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bg image.jpg"))); // NOI18N
         image.setText("jLabel9");
@@ -231,6 +237,7 @@ public class Add extends javax.swing.JFrame {
         getContentPane().add(image, new AbsoluteConstraints(0, 0, 550, 700));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {   
@@ -246,15 +253,15 @@ public class Add extends javax.swing.JFrame {
     }                                                 
 
     private void budgetButtonActionPerformed(java.awt.event.ActionEvent evt) {  
-        //this.dispose();                                            
-        //Frame6 frame=new Frame6 (uname);
-        //frame.setVisible(true);
+        this.dispose();                                            
+        SetBudget frame=new SetBudget(uname);
+        frame.setVisible(true);
     }                                            
 
     private void home3MouseClicked(java.awt.event.MouseEvent evt) {     
-        //this.dispose();                               
-        //Frame7 frame=new Frame7 (uname);
-        //frame.setVisible(true);
+        this.dispose();                               
+        Budget frame=new Budget(uname);
+        frame.setVisible(true);
     }                                  
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {  
