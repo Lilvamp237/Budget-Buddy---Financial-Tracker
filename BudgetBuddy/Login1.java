@@ -9,13 +9,13 @@ import javax.swing.JOptionPane;
  * @author Sasini Lekamge
  */
 
-public class Login extends javax.swing.JFrame {
+public class Login1 extends javax.swing.JFrame {
 
     private User user;
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login1() {
         initComponents();
     }
 
@@ -175,7 +175,7 @@ public class Login extends javax.swing.JFrame {
                     // Add code here to navigate to the main application screen
                     user.setUserDetails();
                     dispose();
-                    Home home=new Home(user);
+                    Home3 home=new Home3(user);
                     home.setVisible(true);
                 } else if (user.loginUser()==false){
                     // Login failed, display error message
@@ -191,7 +191,7 @@ public class Login extends javax.swing.JFrame {
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         this.dispose();
-        Register register=new Register();
+        Register2 register=new Register2();
         register.setVisible(true);
     }      
 
@@ -212,13 +212,13 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -228,7 +228,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new Login1().setVisible(true);
             }
         });
     }

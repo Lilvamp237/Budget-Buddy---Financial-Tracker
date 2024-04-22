@@ -14,23 +14,23 @@ import java.awt.event.MouseEvent;
  * @author senud
  */
 
-public class Home extends javax.swing.JFrame {
+public class Home3 extends javax.swing.JFrame {
 
     private User user;
 
     private String uname;
 
-    public Home() {
+    public Home3() {
         this.user = null;
         initComponents();
     }
 
-    public Home(User user) {
+    public Home3(User user) {
         this.user = user;
         initComponents();
     }
 
-    public Home(String uname) {
+    public Home3(String uname) {
         this.uname = uname;
         initComponents();
     }
@@ -363,7 +363,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Add add = new Add(user.getUserName());
+                Add4 add = new Add4(user.getUserName());
                 add.setVisible(true);
             }
         });
@@ -383,7 +383,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Profile add = new Profile(user);
+                Profile9 add = new Profile9(user);
                 add.setVisible(true);
             }
         });
@@ -394,7 +394,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Add add = new Add(user.getUserName());
+                Add4 add = new Add4(user.getUserName());
                 add.setVisible(true);
             }
         });
@@ -405,7 +405,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Budget add = new Budget(user.getUserName());
+                Budget8 add = new Budget8(user.getUserName());
                 add.setVisible(true);
             }
         });
@@ -429,20 +429,20 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new Home3().setVisible(true);
             }
         });
         

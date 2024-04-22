@@ -10,7 +10,7 @@ public class User{
     private String email;
     private String dob, gender;
 
-    private Budget budget;
+    private Budget8 budget;
 
     private static int userCount =0;
 

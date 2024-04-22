@@ -9,7 +9,7 @@ import java.sql.SQLException;
  *
  * @author senud
  */
-public class Profile extends javax.swing.JFrame {
+public class Profile9 extends javax.swing.JFrame {
 
     /**
      * Creates new form Profile
@@ -22,17 +22,17 @@ public class Profile extends javax.swing.JFrame {
     String genderr = "";
     String dobb = "";
 
-    public Profile() {
+    public Profile9() {
         this.uname = "";
         initComponents();
     }
 
-    public Profile(String uname) {
+    public Profile9(String uname) {
         this.uname = uname;
         initComponents();
     }
 
-    public Profile(User user) {
+    public Profile9(User user) {
         this.userr = user;
         initComponents();
     }
@@ -370,7 +370,7 @@ public class Profile extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Home add = new Home();
+                Home3 add = new Home3();
                 add.setVisible(true);
             }
         });
@@ -381,7 +381,7 @@ public class Profile extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Budget add = new Budget(uname);
+                Budget8 add = new Budget8(uname);
                 add.setVisible(true);
             }
         });
@@ -389,7 +389,7 @@ public class Profile extends javax.swing.JFrame {
 
     private void plusMouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                    
-        Add frame=new Add(uname);
+        Add4 frame=new Add4(uname);
         frame.setVisible(true);
     }                                 
     
@@ -421,13 +421,13 @@ public class Profile extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profile9.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profile9.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profile9.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profile9.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -441,7 +441,7 @@ public class Profile extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Profile().setVisible(true);
+                new Profile9().setVisible(true);
             }
         });
     }
