@@ -16,11 +16,12 @@ import java.awt.event.MouseEvent;
 
 public class Home extends javax.swing.JFrame {
 
-    private String uname;
     private User user;
 
+    private String uname;
+
     public Home() {
-        this.uname = "";
+        this.user = null;
         initComponents();
     }
 
@@ -89,31 +90,13 @@ public class Home extends javax.swing.JFrame {
         hi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hi.setText("HI, ");
 
-
-        String fullName = ""; // Initialize fullName variable
-        boolean out;
-        // Perform validation against the database, checks if the username exists already
-        DB db = new DB();
-        ResultSet rs = db.getData("SELECT name FROM `user` WHERE username= '" + uname.trim() + "'");
-        try {
-            out = rs.next();
-            // If the username exists, retrieve the full name
-            if (out) {
-                fullName = rs.getString("name"); // Assuming the full name column in the database is named "full_name"
-            }
-            System.out.println(out);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            db.closeCon();
-        }
-
         // Split the full name into first name and last name
-        String[] parts = fullName.split(" ");
+        String[] parts = user.getName().split(" ");
         String firstName = parts[0]; // Assuming the first part is the first name
 
         // Set the first name to your name component
         name.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         name.setText(firstName);
         //name.setText("SASINI");
@@ -372,6 +355,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().add(image, new AbsoluteConstraints(0, 0, 550, 700));
 
         pack();
+        setLocationRelativeTo(null);
 
         add.addMouseListener(new MouseAdapter() {
             @Override
@@ -379,7 +363,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Add add = new Add(uname);
+                Add add = new Add(user.getUserName());
                 add.setVisible(true);
             }
         });
@@ -399,7 +383,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Profile add = new Profile(uname);
+                Profile add = new Profile(user);
                 add.setVisible(true);
             }
         });
@@ -410,7 +394,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Add add = new Add(uname);
+                Add add = new Add(user.getUserName());
                 add.setVisible(true);
             }
         });
@@ -421,7 +405,7 @@ public class Home extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Budget add = new Budget(uname);
+                Budget add = new Budget(user.getUserName());
                 add.setVisible(true);
             }
         });

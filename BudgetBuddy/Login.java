@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     private User user;
-    private String uname;
     /**
      * Creates new form Login
      */
@@ -170,14 +169,13 @@ public class Login extends javax.swing.JFrame {
 
                 user = new User(uname, pass);
                 
-                
                 if (user.loginUser()) {
                     // Login successful, navigate to the main application screen
                     JOptionPane.showMessageDialog(null, "Login successful!");
                     // Add code here to navigate to the main application screen
-                    dispose();
                     user.setUserDetails();
-                    Home home=new Home(uname);
+                    dispose();
+                    Home home=new Home(user);
                     home.setVisible(true);
                 } else if (user.loginUser()==false){
                     // Login failed, display error message
@@ -195,7 +193,7 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
         Register register=new Register();
         register.setVisible(true);
-    }                                            
+    }      
 
     /**
      * @param args the command line arguments

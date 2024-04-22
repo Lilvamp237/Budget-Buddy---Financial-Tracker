@@ -280,7 +280,7 @@ public class Profile extends javax.swing.JFrame {
         DOBsep.setForeground(new java.awt.Color(0, 0, 0));
 
         name.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        name.setText(fullName);
+        name.setText(user.getName());
 
         email.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
         email.setText(emaill);

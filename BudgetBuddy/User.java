@@ -17,6 +17,16 @@ public class User{
     public User() {
     }
 
+    public User(User user) {
+        this.username = user.getUserName(); // Assuming getUsername() method exists in your User class
+        this.name = user.getName();
+        this.dob = user.getDob();
+        this.gender = user.getGender();
+        this.password = user.getPassword();
+        this.email = user.getEmail();
+        // Copy any other fields as needed
+    }   
+
     public User(String user_id) {
         //validate the inputs
         this.username = user_id;
@@ -26,7 +36,7 @@ public class User{
         //validate the inputs
         this.username = user_id;
         this.password = pass;
-    }
+    } 
 
     public User(String user_id, String name, String dob, String gender, String password, String email) {
         //validate the inputs
@@ -62,12 +72,29 @@ public class User{
     }
 
 
+    public String getUserName(){
+        return username;
+    }
 
+    public String getPassword(){
+        return password;
+    }
 
+    public String getName(){
+        return name;
+    }
 
+    public String getDob(){
+        return dob;
+    }
 
+    public String getGender(){
+        return gender;
+    }
 
-
+    public String getEmail(){
+        return email;
+    }
 
 
     public static boolean validateUN(String userName){
