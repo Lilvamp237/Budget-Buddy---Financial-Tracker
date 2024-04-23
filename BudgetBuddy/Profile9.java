@@ -2,8 +2,6 @@ package BudgetBuddy;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 /**
  * 
  *
@@ -225,25 +223,6 @@ public class Profile9 extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 630, 550, 70));
 
-        boolean out;
-        // Perform validation against the database, checks if the username exists already
-        DB db = new DB();
-        ResultSet rs = db.getData("SELECT * FROM `user` WHERE username= '" + uname.trim() + "'");
-        try {
-            out = rs.next();
-            // If the username exists, retrieve the full name
-            if (out) {
-                fullName = rs.getString("name"); 
-                dobb = rs.getString("dob");
-                genderr = rs.getString("gender");
-                emaill = rs.getString("email");
-            }
-            System.out.println(out);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            db.closeCon();
-        }
 
         user.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/userProfile.png"))); // NOI18N
         getContentPane().add(user, new AbsoluteConstraints(200, 120, 150, 140));
@@ -280,16 +259,16 @@ public class Profile9 extends javax.swing.JFrame {
         DOBsep.setForeground(new java.awt.Color(0, 0, 0));
 
         name.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        name.setText(user.getName());
+        name.setText(userr.getName());
 
         email.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        email.setText(emaill);
+        email.setText(userr.getEmail());
 
         gender.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        gender.setText(genderr);
+        gender.setText(userr.getGender());
 
         dob.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        dob.setText(dobb);
+        dob.setText(userr.getDob());
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -364,13 +343,15 @@ public class Profile9 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
 
+
+
         home1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Home3 add = new Home3();
+                Home3 add = new Home3(userr);
                 add.setVisible(true);
             }
         });
@@ -381,7 +362,7 @@ public class Profile9 extends javax.swing.JFrame {
                 // Perform the action when the label is clicked
                 // For example, open a new frame
                 dispose();
-                Budget8 add = new Budget8(uname);
+                Budget8 add = new Budget8(userr);
                 add.setVisible(true);
             }
         });
@@ -389,7 +370,7 @@ public class Profile9 extends javax.swing.JFrame {
 
     private void plusMouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                    
-        Add4 frame=new Add4(uname);
+        Add4 frame=new Add4(userr);
         frame.setVisible(true);
     }                                 
     
@@ -429,13 +410,6 @@ public class Profile9 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Profile9.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

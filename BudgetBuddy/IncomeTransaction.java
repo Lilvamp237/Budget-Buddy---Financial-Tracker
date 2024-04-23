@@ -2,11 +2,15 @@ package BudgetBuddy;
 
 public class IncomeTransaction extends Transaction {
     protected String description;
+    protected User user;
+    protected float amount;
+    protected Category category;
 
-    public IncomeTransaction(String user, String description, float amount){
-        new User(user);
+    public IncomeTransaction(User user, String description, float amount, Category categ){
+        this.user  = user;
         this.description = description;
         this.amount = amount;
+        this.category = categ;
     }
     public float getAmount(){
         return amount;
@@ -14,5 +18,14 @@ public class IncomeTransaction extends Transaction {
 
     public void setAmount(){
         
+    }
+
+    public boolean addNewTransaction(){
+        DB db = new DB();
+        if (db.execute("INSERT INTO income(username, category, description, amount) VALUES ('" + user.getUserName().trim() + "', '" + category.getCategoryName().trim() + "', '" + description.trim() + "', '" + amount +  "')")) {
+            return true;
+        }
+        db.closeCon();
+        return false;
     }
 }

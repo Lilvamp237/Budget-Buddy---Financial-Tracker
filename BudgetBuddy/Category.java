@@ -1,5 +1,13 @@
 package BudgetBuddy;
 
 public class Category {
-    private String CategoryName;
+    private String categoryName;
+
+    public Category(String name){
+        this.categoryName = name;
+    }
+
+    public String getCategoryName(){
+        return categoryName;
+    }
 }

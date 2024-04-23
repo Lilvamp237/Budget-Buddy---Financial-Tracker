@@ -1,14 +1,8 @@
 package BudgetBuddy;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 /**
  *
  * @author senud
@@ -357,13 +351,13 @@ public class Home3 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
 
+
+
         add.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
-                Add4 add = new Add4(user.getUserName());
+                Add4 add = new Add4(user);
                 add.setVisible(true);
             }
         });
@@ -371,8 +365,6 @@ public class Home3 extends javax.swing.JFrame {
         home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 JOptionPane.showMessageDialog(null, "Already in the homepage!");
             }
         });
@@ -380,8 +372,6 @@ public class Home3 extends javax.swing.JFrame {
         profile.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
                 Profile9 add = new Profile9(user);
                 add.setVisible(true);
@@ -391,10 +381,8 @@ public class Home3 extends javax.swing.JFrame {
         report.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
-                Add4 add = new Add4(user.getUserName());
+                Add4 add = new Add4(user);
                 add.setVisible(true);
             }
         });
@@ -402,10 +390,8 @@ public class Home3 extends javax.swing.JFrame {
         currents.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
-                Budget8 add = new Budget8(user.getUserName());
+                Budget8 add = new Budget8(user);
                 add.setVisible(true);
             }
         });

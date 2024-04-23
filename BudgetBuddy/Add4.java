@@ -242,31 +242,31 @@ public class Add4 extends javax.swing.JFrame {
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {   
         this.dispose();                                
-        Home3 frame=new Home3(uname);
+        Home3 frame=new Home3(user);
         frame.setVisible(true);
     }                                  
 
     private void transactionButtonActionPerformed(java.awt.event.ActionEvent evt) {   
         this.dispose();                                                
-        AddIncome5 frame=new AddIncome5(uname);
+        AddIncome5 frame=new AddIncome5(user);
         frame.setVisible(true);
     }                                                 
 
     private void budgetButtonActionPerformed(java.awt.event.ActionEvent evt) {  
         this.dispose();                                            
-        SetBudget7 frame=new SetBudget7(uname);
+        SetBudget7 frame=new SetBudget7(user);
         frame.setVisible(true);
     }                                            
 
     private void home3MouseClicked(java.awt.event.MouseEvent evt) {     
         this.dispose();                               
-        Budget8 frame=new Budget8(uname);
+        Budget8 frame=new Budget8(user);
         frame.setVisible(true);
     }                                  
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                 
-        Profile9 frame=new Profile9(uname);
+        Profile9 frame=new Profile9(user);
         frame.setVisible(true);
     }                                 
 

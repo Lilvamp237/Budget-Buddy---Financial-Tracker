@@ -25,6 +25,11 @@ public class AddExpense6 extends javax.swing.JFrame {
         initComponents();
     }
 
+    public AddExpense6(User user) {
+        this.user = user;
+        initComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -511,7 +516,7 @@ public class AddExpense6 extends javax.swing.JFrame {
 
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String categ = (String)category.getSelectedItem();
+                Category categ = new Category((String)category.getSelectedItem());
                 String descr = description.getText();
                 float amountValue = 0;
                 boolean correct = true;
@@ -521,7 +526,6 @@ public class AddExpense6 extends javax.swing.JFrame {
                     String amountText = amount.getText();
                     // Parse the text as a float
                     amountValue = Float.parseFloat(amountText);
-                    ExpenseTransaction newExpense = new ExpenseTransaction(uname, descr, amountValue);
                 } catch (NumberFormatException ex) {
                     // Handle the case where the text is not a valid float
                     correct = false;
@@ -532,15 +536,14 @@ public class AddExpense6 extends javax.swing.JFrame {
                 }
                 else {
                     // Insert the user data into the database
-                    DB db = new DB();
-                    if (db.execute("INSERT INTO expenses(username, category, description, amount) VALUES ('" + uname.trim() + "', '" + categ.trim() + "', '" + descr.trim() + "', '" + amountValue +  "')")) {
+                    ExpenseTransaction newExpense = new ExpenseTransaction(user, descr, amountValue, categ);
+                    if (newExpense.addNewTransaction()) {
                         JOptionPane.showMessageDialog(null, "Expense added successful!");
                         amount.setText("0");
                         currentamount = "";
                     } else {
                         JOptionPane.showMessageDialog(null, "Failed to add the expense, try again!");
                     }
-                    db.closeCon();
                 }
             }
         });
@@ -640,37 +643,37 @@ public class AddExpense6 extends javax.swing.JFrame {
 
     private void incomeMouseClicked(java.awt.event.MouseEvent evt) {    
         this.dispose();                                 
-        AddIncome5 frame=new AddIncome5(uname);
+        AddIncome5 frame=new AddIncome5(user);
         frame.setVisible(true);
     }                                   
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {
         this.dispose(); 
-        Add4 frame=new Add4(uname);
+        Add4 frame=new Add4(user);
         frame.setVisible(true);
     }                                    
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                 
-        Home3 frame=new Home3(uname);
+        Home3 frame=new Home3(user);
         frame.setVisible(true);
     }                                  
 
     private void plusMouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                 
-        Add4 frame=new Add4(uname);
+        Add4 frame=new Add4(user);
         frame.setVisible(true);
     }     
     
     private void home3MouseClicked(java.awt.event.MouseEvent evt) { 
         this.dispose();                                  
-        Budget8 frame=new Budget8(uname);
+        Budget8 frame=new Budget8(user);
         frame.setVisible(true);
     }                                  
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {
         this.dispose();                                  
-        Profile9 frame=new Profile9(uname);
+        Profile9 frame=new Profile9(user);
         frame.setVisible(true);
     }                                 
 

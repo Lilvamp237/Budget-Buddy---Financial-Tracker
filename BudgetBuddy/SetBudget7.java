@@ -5,8 +5,7 @@ package BudgetBuddy;
  * @author senud
  */
 public class SetBudget7 extends javax.swing.JFrame {
-
-    private static String currentbudget = "";
+    private String currentbudget;
     private User user;
     private String uname;
     /**
@@ -547,31 +546,31 @@ public class SetBudget7 extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {   
         this.dispose();                                   
-        Add4 frame=new Add4(uname);
+        Add4 frame=new Add4(user);
         frame.setVisible(true);
     }                                    
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                  
-        Home3 frame=new Home3(uname);
+        Home3 frame=new Home3(user);
         frame.setVisible(true);
     }                                  
 
     private void plusMouseClicked(java.awt.event.MouseEvent evt) {  
         this.dispose();                                 
-        Add4 frame=new Add4(uname);
+        Add4 frame=new Add4(user);
         frame.setVisible(true);
     }                                 
 
     private void home3MouseClicked(java.awt.event.MouseEvent evt) {     
         this.dispose();                               
-        Budget8 frame=new Budget8(uname);
+        Budget8 frame=new Budget8(user);
         frame.setVisible(true);
     }                                  
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) { 
         this.dispose();                                 
-        Profile9 frame=new Profile9(uname);
+        Profile9 frame=new Profile9(user);
         frame.setVisible(true);
     }                                 
 

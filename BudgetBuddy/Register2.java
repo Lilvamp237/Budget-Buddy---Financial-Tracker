@@ -1,12 +1,10 @@
 package BudgetBuddy;
 
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author senud
  */
-
 public class Register2 extends javax.swing.JFrame {
     /**
      * Creates new form Register
@@ -218,8 +216,7 @@ public class Register2 extends javax.swing.JFrame {
                 String confPass = confirm.getText();
                 String gen = gender.getSelectedItem().toString();
                 String dob = year.getSelectedItem().toString() + "-" + month.getSelectedItem().toString() + "-" + date.getSelectedItem().toString();
-                //String tel = telno.getText();
-                
+               
                 // Create a new User object
                 User newUser = new User(uname, fname + " " + lname, dob, gen, pass, mail);
                 
@@ -248,7 +245,6 @@ public class Register2 extends javax.swing.JFrame {
                 }
             }
         });
-    
     }// </editor-fold>
     
     
@@ -294,7 +290,6 @@ public class Register2 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Register2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

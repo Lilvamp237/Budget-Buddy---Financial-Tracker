@@ -1,14 +1,10 @@
 package BudgetBuddy;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Sasini Lekamge
  */
-
 public class Login1 extends javax.swing.JFrame {
 
     private User user;
@@ -85,11 +81,6 @@ public class Login1 extends javax.swing.JFrame {
         username.setText(" ");
 
         password.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
 
         logInButton.setFont(new java.awt.Font("Candara", 1, 20)); // NOI18N
         logInButton.setText("LOG IN");
@@ -162,6 +153,8 @@ public class Login1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
 
+
+
         logInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 String uname = username.getText();
@@ -185,10 +178,6 @@ public class Login1 extends javax.swing.JFrame {
         });
     }// </editor-fold>                        
     
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
-
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         this.dispose();
         Register2 register=new Register2();
@@ -220,9 +209,6 @@ public class Login1 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
