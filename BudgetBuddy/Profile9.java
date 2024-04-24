@@ -229,7 +229,7 @@ public class Profile9 extends javax.swing.JFrame {
 
         username.setFont(new java.awt.Font("Candara", 1, 30)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        username.setText(uname);
+        username.setText(userr.getUserName());
         getContentPane().add(username, new AbsoluteConstraints(210, 270, 140, -1));
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 204,30));
