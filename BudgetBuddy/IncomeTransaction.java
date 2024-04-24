@@ -1,5 +1,7 @@
 package BudgetBuddy;
 
+import java.sql.ResultSet;
+
 public class IncomeTransaction extends Transaction {
     protected String description;
     protected User user;
@@ -22,7 +24,7 @@ public class IncomeTransaction extends Transaction {
     }
     public void getTotalIncome(){
         DB db = new DB();
-        ResultSet rs = db.getData("SELECT SUM * FROM `user` WHERE username= '" + User.getUserName().trim() + "'");
+        ResultSet rs = db.getData("SELECT SUM * FROM `user` WHERE username= '" + user.getUserName().trim() + "'");
     }
 
     public boolean addNewTransaction(){
