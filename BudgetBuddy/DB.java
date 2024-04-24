@@ -7,8 +7,8 @@ public class DB {
     private String url ="jdbc:mysql://localhost:3306/budgetbuddy";
     private String un="root";
     //private String pw="20020613#Skw";
-    //private String pw="Sumu1234!";
-    private String pw = "Kal@7766";
+    private String pw="Sumu1234!";
+    //private String pw = "Kal@7766";
     private Connection con;
 
     public DB() {

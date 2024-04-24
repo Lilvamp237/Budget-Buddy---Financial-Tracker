@@ -1,10 +1,13 @@
 package BudgetBuddy;
 
+import java.sql.ResultSet;
+
 public class IncomeTransaction extends Transaction {
     protected String description;
     protected User user;
     protected float amount;
     protected Category category;
+    protected String totalIncome;
 
     public IncomeTransaction(User user, String description, float amount, Category categ){
         this.user  = user;
@@ -12,12 +15,19 @@ public class IncomeTransaction extends Transaction {
         this.amount = amount;
         this.category = categ;
     }
+    
     public float getAmount(){
         return amount;
     }
 
     public void setAmount(){
         
+    }
+
+    public void getTotalIncome(){
+        DB db = new DB();
+        ResultSet rs = db.getData("SELECT SUM(totalincome)  FROM `income` WHERE username= '" + user.getUserName().trim() + "'");
+
     }
 
     public boolean addNewTransaction(){

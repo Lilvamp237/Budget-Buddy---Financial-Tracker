@@ -40,9 +40,9 @@ public class Home3 extends javax.swing.JFrame {
 
         title = new javax.swing.JPanel();
         photo = new javax.swing.JLabel();
-        name1 = new javax.swing.JLabel();
         hi = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         currentBalance = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         balance = new javax.swing.JLabel();
@@ -74,11 +74,6 @@ public class Home3 extends javax.swing.JFrame {
         photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/user.png"))); // NOI18N
         photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        name1.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
-        name1.setForeground(new java.awt.Color(255, 255, 255));
-        name1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        name1.setText("...!");
-
         hi.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
         hi.setForeground(new java.awt.Color(255, 255, 255));
         hi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -88,38 +83,39 @@ public class Home3 extends javax.swing.JFrame {
         String[] parts = user.getName().split(" ");
         String firstName = parts[0]; // Assuming the first part is the first name
 
-        // Set the first name to your name component
         name.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
         name.setForeground(new java.awt.Color(255, 255, 255));
-        name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         name.setText(firstName);
-        //name.setText("SASINI");
+
+        jLabel10.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("...!");
 
         javax.swing.GroupLayout titleLayout = new javax.swing.GroupLayout(title);
         title.setLayout(titleLayout);
         titleLayout.setHorizontalGroup(
             titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(57, 57, 57)
                 .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(45, 45, 45)
                 .addComponent(hi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(name1)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addComponent(jLabel10)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         titleLayout.setVerticalGroup(
             titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(photo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(photo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(titleLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hi, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                    .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         getContentPane().add(title, new AbsoluteConstraints(0, 0, 550, 110));
@@ -228,6 +224,7 @@ public class Home3 extends javax.swing.JFrame {
         getContentPane().add(Income, new AbsoluteConstraints(80, 290, 380, -1));
 
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/plus-circle-solid-72.png"))); // NOI18N
+        
         getContentPane().add(add, new AbsoluteConstraints(230, 580, 90, 90));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -278,7 +275,7 @@ public class Home3 extends javax.swing.JFrame {
 
         currents.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         currents.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/wallet.png"))); // NOI18N
-
+        
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -396,6 +393,7 @@ public class Home3 extends javax.swing.JFrame {
             }
         });
 
+
     }// </editor-fold>                        
 
     /**
@@ -450,12 +448,12 @@ public class Home3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel name;
-    private javax.swing.JLabel name1;
     private javax.swing.JLabel photo;
     private javax.swing.JLabel profile;
     private javax.swing.JLabel report;
