@@ -77,7 +77,7 @@ public class Home3 extends javax.swing.JFrame {
         hi.setFont(new java.awt.Font("Candara", 1, 48)); // NOI18N
         hi.setForeground(new java.awt.Color(255, 255, 255));
         hi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hi.setText("HI, ");
+        hi.setText("Hi, ");
 
         // Split the full name into first name and last name
         String[] parts = user.getName().split(" ");
