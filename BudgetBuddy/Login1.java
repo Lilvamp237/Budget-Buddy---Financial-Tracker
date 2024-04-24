@@ -71,11 +71,11 @@ public class Login1 extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255,150));
 
-        UName.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
-        UName.setText("USERNAME");
-
         Password.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
         Password.setText("PASSWORD");
+
+        UName.setFont(new java.awt.Font("Candara", 1, 26)); // NOI18N
+        UName.setText("USERNAME");
 
         username.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         username.setText(" ");
@@ -106,14 +106,12 @@ public class Login1 extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(Password)
-                                .addGap(49, 49, 49)
-                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(UName)
-                                .addGap(52, 52, 52)
-                                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Password)
+                            .addComponent(UName))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -128,12 +126,12 @@ public class Login1 extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Password)
+                    .addComponent(UName)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logInButton)
                 .addGap(11, 11, 11)
@@ -153,30 +151,50 @@ public class Login1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
 
-
-
         logInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String uname = username.getText();
-                String pass = new String(password.getPassword());
-
-                user = new User(uname, pass);
-                
-                if (user.loginUser()) {
-                    // Login successful, navigate to the main application screen
-                    JOptionPane.showMessageDialog(null, "Login successful!");
-                    // Add code here to navigate to the main application screen
-                    user.setUserDetails();
-                    dispose();
-                    Home3 home=new Home3(user);
-                    home.setVisible(true);
-                } else if (user.loginUser()==false){
-                    // Login failed, display error message
-                    JOptionPane.showMessageDialog(null, "Invalid username or password!");
+                login();
+            }
+        });
+    
+        // KeyListener for handling Enter key press event on username field
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    login();
                 }
             }
         });
-    }// </editor-fold>                        
+    
+        // KeyListener for handling Enter key press event on password field
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    login();
+                }
+            }
+        });
+    }// </editor-fold>  
+    
+    private void login(){
+        String uname = username.getText();
+        String pass = new String(password.getPassword());
+
+        user = new User(uname, pass);
+                
+        if (user.loginUser()) {
+            // Login successful, navigate to the main application screen
+            JOptionPane.showMessageDialog(null, "Login successful!");
+            // Navigate to the main application screen
+            user.setUserDetails();
+            dispose();
+            Home3 home=new Home3(user);
+            home.setVisible(true);
+        } else if (user.loginUser()==false){
+            // Login failed, display error message
+            JOptionPane.showMessageDialog(null, "Invalid username or password!");
+        }
+    }
     
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         this.dispose();
