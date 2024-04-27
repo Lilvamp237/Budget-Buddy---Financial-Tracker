@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 public interface Security {
     boolean authenticate(String username, String password);

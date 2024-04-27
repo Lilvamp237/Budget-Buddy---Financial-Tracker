@@ -1,6 +1,7 @@
-package BudgetBuddy;
+package financegui;
 
 import javax.swing.JOptionPane;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 /**
@@ -15,7 +16,6 @@ public class Home3 extends javax.swing.JFrame {
     private String uname;
 
     public Home3() {
-        this.user = null;
         initComponents();
     }
 
@@ -379,7 +379,7 @@ public class Home3 extends javax.swing.JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-                Add4 add = new Add4(user);
+                OverviewIncome add = new OverviewIncome(user);
                 add.setVisible(true);
             }
         });

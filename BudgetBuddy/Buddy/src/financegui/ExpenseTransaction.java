@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +8,7 @@ public class ExpenseTransaction extends Transaction {
     protected User user;
     protected float amount;
     protected Category category;
-    protected String totalExpense;
+    protected float totalExpense;
 
     public ExpenseTransaction(User user, String description, float amount, Category categ){
         this.user  = user;
@@ -26,12 +26,12 @@ public class ExpenseTransaction extends Transaction {
     }
 
     public float getTotalExpenses() {
-        float totalExpenses = 0;
+        totalExpense = 0;
         try {
             DB db = new DB();
             ResultSet rs = db.getData("SELECT SUM(amount) AS totalExpenses FROM expense WHERE username='" + user.getUserName().trim() + "'");
             if (rs.next()) {
-                totalExpenses = rs.getFloat("totalExpenses");
+                totalExpense = rs.getFloat("totalExpenses");
             }
             db.closeCon();
         } catch (SQLException e) { 
@@ -39,7 +39,7 @@ public class ExpenseTransaction extends Transaction {
         } catch (Exception e) { 
             e.printStackTrace(); 
         }
-        return totalExpenses;
+        return totalExpense;
     }
 
     

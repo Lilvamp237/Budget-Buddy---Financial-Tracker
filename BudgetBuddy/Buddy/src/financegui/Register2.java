@@ -1,6 +1,7 @@
-package BudgetBuddy;
+package financegui;
 
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author senud

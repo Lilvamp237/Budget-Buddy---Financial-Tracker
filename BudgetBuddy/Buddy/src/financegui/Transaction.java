@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 public abstract class Transaction {
     protected User user;

@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 /**
  *
@@ -6,7 +6,8 @@ package BudgetBuddy;
  */
 public class Budget8 extends javax.swing.JFrame {
 
-    private double totalBudget;
+    private float totalBudget;
+    private String month, note;
     private User user;
     private String uname;
 
@@ -26,6 +27,27 @@ public class Budget8 extends javax.swing.JFrame {
     public Budget8(User user) {
         this.user = user;
         initComponents();
+    }
+
+    public boolean addBudget(String month, String note, float amount){
+        this.month = month;
+        this.note = note;
+        this.totalBudget = amount;
+        DB db = new DB();
+        if (db.execute("INSERT INTO income(username, month, note, amount) VALUES ('" + user.getUserName().trim() + "', '" + month.trim() + "', '" + note.trim() + "', '" + amount +  "')")) {
+            return true;
+        }
+        db.closeCon();
+        return false;
+    }
+
+    public boolean updateBudget(){
+        DB db = new DB();
+        if (db.execute("INSERT INTO income(username, month, note, amount) VALUES ('" + user.getUserName().trim() + "', '" + month.trim() + "', '" + note.trim() + "', '" + totalBudget +  "')")) {
+            return true;
+        }
+        db.closeCon();
+        return false;
     }
 
     /**
@@ -171,6 +193,11 @@ public class Budget8 extends javax.swing.JFrame {
 
         home2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home2.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/stat.png"))); // NOI18N
+        home2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                home2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -264,7 +291,13 @@ public class Budget8 extends javax.swing.JFrame {
         this.dispose();                                  
         Home3 frame=new Home3(user);
         frame.setVisible(true);
-    }                                  
+    } 
+    
+    private void home2MouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                  
+        OverviewIncome frame=new OverviewIncome(user);
+        frame.setVisible(true);
+    } 
 
     /**
      * @param args the command line arguments

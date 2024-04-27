@@ -1,6 +1,7 @@
-package BudgetBuddy;
+package financegui;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class IncomeTransaction extends Transaction {
     protected String description;
@@ -22,9 +23,22 @@ public class IncomeTransaction extends Transaction {
     public void setAmount(){
         
     }
-    public void getTotalIncome(){
-        DB db = new DB();
-        ResultSet rs = db.getData("SELECT SUM * FROM `user` WHERE username= '" + user.getUserName().trim() + "'");
+
+    public float getTotalIncome() {
+        totalincome = 0;
+        try {
+            DB db = new DB();
+            ResultSet rs = db.getData("SELECT SUM(amount) AS totalIncome FROM income WHERE username='" + user.getUserName().trim() + "'");
+            if (rs.next()) {
+                totalincome = rs.getFloat("totalIncome");
+            }
+            db.closeCon();
+        } catch (SQLException e) { 
+            e.printStackTrace(); 
+        } catch (Exception e) { 
+            e.printStackTrace(); 
+        }
+        return totalincome;
     }
 
     public boolean addNewTransaction(){

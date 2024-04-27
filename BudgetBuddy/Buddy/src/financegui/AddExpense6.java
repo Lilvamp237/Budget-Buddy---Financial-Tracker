@@ -1,27 +1,31 @@
-package BudgetBuddy;
+package financegui;
+
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author senud
  */
-public class SetBudget7 extends javax.swing.JFrame {
-    private String currentbudget;
+public class AddExpense6 extends javax.swing.JFrame {
+    private static String currentamount = "";
+
+    /**
+     * Creates new form AddExpense
+     */
     private User user;
     private String uname;
-    /**
-     * Creates new form SetBudget
-     */
-    public SetBudget7() {
+
+    public AddExpense6() {
         this.uname = "";
         initComponents();
-    }
+    } 
 
-    public SetBudget7(String uname) {
+    public AddExpense6(String uname) {
         this.uname = uname;
         initComponents();
     }
 
-    public SetBudget7(User user) {
+    public AddExpense6(User user) {
         this.user = user;
         initComponents();
     }
@@ -37,6 +41,11 @@ public class SetBudget7 extends javax.swing.JFrame {
 
         title = new javax.swing.JPanel();
         AddTransactions = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        income = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        expense = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         plus = new javax.swing.JLabel();
         homePanel = new javax.swing.JPanel();
@@ -66,24 +75,77 @@ public class SetBudget7 extends javax.swing.JFrame {
         delete = new javax.swing.JButton();
         EnterAmount = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        typeAmount = new javax.swing.JLabel();
+        amount = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Add Income");
+        setTitle("Add expenses");
         getContentPane().setLayout(new AbsoluteLayout());
 
         title.setBackground(new java.awt.Color(0, 204, 204));
         title.setLayout(new AbsoluteLayout());
 
-        AddTransactions.setFont(new java.awt.Font("Candara", 1, 36)); // NOI18N
+        AddTransactions.setFont(new java.awt.Font("Candara", 1, 30)); // NOI18N
         AddTransactions.setForeground(new java.awt.Color(255, 255, 255));
         AddTransactions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AddTransactions.setText("Set Budget");
-        title.add(AddTransactions, new AbsoluteConstraints(190, 30, -1, -1));
+        AddTransactions.setText("Add Transacations");
+        title.add(AddTransactions, new AbsoluteConstraints(159, 8, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(new AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel8.setLayout(new AbsoluteLayout());
+
+        income.setBackground(new java.awt.Color(255, 255, 255));
+        income.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        income.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        income.setText("INCOME");
+        income.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        income.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                incomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                incomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                incomeMouseExited(evt);
+            }
+        });
+        jPanel8.add(income, new AbsoluteConstraints(0, 0, 280, 58));
+
+        jPanel1.add(jPanel8, new AbsoluteConstraints(-3, 0, 280, -1));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        expense.setBackground(new java.awt.Color(255, 255, 255));
+        expense.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        expense.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        expense.setText("EXPENSES");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(expense, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(expense, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel9, new AbsoluteConstraints(264, 0, 300, 80));
+
+        title.add(jPanel1, new AbsoluteConstraints(0, 52, 550, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/arrow.png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -185,6 +247,11 @@ public class SetBudget7 extends javax.swing.JFrame {
 
         home2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home2.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/stat.png"))); // NOI18N
+        home2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                home2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -249,7 +316,7 @@ public class SetBudget7 extends javax.swing.JFrame {
         getContentPane().add(description, new AbsoluteConstraints(140, 500, 350, 30));
 
         category.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Category", "Salary", "Other", " " }));
+        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Category", "Shopping", "Utilities", "Groceries", "Other", " " }));
         category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryActionPerformed(evt);
@@ -428,17 +495,17 @@ public class SetBudget7 extends javax.swing.JFrame {
 
         EnterAmount.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         EnterAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EnterAmount.setText("Enter typeAmount:");
+        EnterAmount.setText("Enter Amount:");
         getContentPane().add(EnterAmount, new AbsoluteConstraints(10, 150, 210, 30));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jSeparator1, new AbsoluteConstraints(210, 180, 290, 10));
 
-        typeAmount.setFont(new java.awt.Font("Times New Roman", 0, 40)); // NOI18N
-        typeAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        typeAmount.setText("00");
-        getContentPane().add(typeAmount, new AbsoluteConstraints(210, 120, 290, 70));
+        amount.setFont(new java.awt.Font("Times New Roman", 0, 40)); // NOI18N
+        amount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        amount.setText("00");
+        getContentPane().add(amount, new AbsoluteConstraints(210, 120, 290, 70));
 
         jLabel1.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
         jLabel1.setText("Description:");
@@ -451,6 +518,42 @@ public class SetBudget7 extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
+
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Category categ = new Category((String)category.getSelectedItem());
+                String descr = description.getText();
+                float amountValue = 0;
+                boolean correct = true;
+
+                try {
+                    // Get the text from the JTextField
+                    String amountText = amount.getText();
+                    // Parse the text as a float
+                    amountValue = Float.parseFloat(amountText);
+                } catch (NumberFormatException ex) {
+                    // Handle the case where the text is not a valid float
+                    correct = false;
+                    System.err.println("Invalid format!");
+                }
+                if(correct == false){
+                    JOptionPane.showMessageDialog(null, "Invalid input, try again.");
+                }
+                else {
+                    // Insert the user data into the database
+                    ExpenseTransaction newExpense = new ExpenseTransaction(user, descr, amountValue, categ);
+                    if (newExpense.addNewTransaction()) {
+                        JOptionPane.showMessageDialog(null, "Expense added successful!");
+                        amount.setText("0");
+                        currentamount = "";
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to add the expense, try again!");
+                    }
+                }
+            }
+        });
+
+        
     }// </editor-fold>                        
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {                                    
@@ -463,95 +566,100 @@ public class SetBudget7 extends javax.swing.JFrame {
 
     private void twoActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"2");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"2");
     }                                   
 
     private void fourActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"4");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"4");
     }                                    
 
     private void threeActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"3");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"3");
     }                                     
 
     private void fiveActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"5");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"5");
     }                                    
 
     private void sixActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"6");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"6");
     }                                   
 
     private void sevenActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"7");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"7");
     }                                     
 
     private void eightActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"8");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"8");
     }                                     
 
     private void nineActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"9");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"9");
     }                                    
 
     private void decimalActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+".");
+        currentamount = amount.getText();
+        amount.setText(currentamount+".");
     }                                       
 
     private void zeroActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"0");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"0");
     }                                    
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
-        String currentText = typeAmount.getText();
+        String currentText = amount.getText();
         // Check if the current text is not empty
         if (!currentText.isEmpty()) {
             // Remove the last character from the current text
             currentText = currentText.substring(0, currentText.length() - 1);
-            // Update the typeAmount field with the modified text
-            typeAmount.setText(currentText);
+            // Update the amount field with the modified text
+            amount.setText(currentText);
         }
     }                                      
 
     private void oneActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
-        currentbudget = typeAmount.getText();
-        typeAmount.setText(currentbudget+"1");
+        currentamount = amount.getText();
+        amount.setText(currentamount+"1");
     }                                   
-        
 
     private void categoryActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
     }                                        
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {   
-        this.dispose();                                   
+    private void incomeMouseClicked(java.awt.event.MouseEvent evt) {    
+        this.dispose();                                 
+        AddIncome5 frame=new AddIncome5(user);
+        frame.setVisible(true);
+    }                                   
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {
+        this.dispose(); 
         Add4 frame=new Add4(user);
         frame.setVisible(true);
     }                                    
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {  
-        this.dispose();                                  
+        this.dispose();                                 
         Home3 frame=new Home3(user);
         frame.setVisible(true);
     }                                  
@@ -560,19 +668,35 @@ public class SetBudget7 extends javax.swing.JFrame {
         this.dispose();                                 
         Add4 frame=new Add4(user);
         frame.setVisible(true);
-    }                                 
-
-    private void home3MouseClicked(java.awt.event.MouseEvent evt) {     
-        this.dispose();                               
+    }     
+    
+    private void home3MouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                  
         Budget8 frame=new Budget8(user);
         frame.setVisible(true);
     }                                  
 
-    private void homeMouseClicked(java.awt.event.MouseEvent evt) { 
-        this.dispose();                                 
+    private void homeMouseClicked(java.awt.event.MouseEvent evt) {
+        this.dispose();                                  
         Profile9 frame=new Profile9(user);
         frame.setVisible(true);
-    }                                 
+    }    
+    
+    private void home2MouseClicked(java.awt.event.MouseEvent evt) {
+        this.dispose();                                  
+        OverviewIncome frame=new OverviewIncome(user);
+        frame.setVisible(true);
+    }  
+
+    private void incomeMouseEntered(java.awt.event.MouseEvent evt) {                                    
+        jPanel9.setBackground(new java.awt.Color(0,204,204));
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+    }                           
+
+    private void incomeMouseExited(java.awt.event.MouseEvent evt) {                                   
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(0,204,204));
+    }
 
     /**
      * @param args the command line arguments
@@ -591,21 +715,20 @@ public class SetBudget7 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SetBudget7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddExpense6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SetBudget7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddExpense6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SetBudget7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddExpense6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SetBudget7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddExpense6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-
+ 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SetBudget7().setVisible(true);
+                new AddExpense6().setVisible(true);
             }
         });
     }
@@ -614,11 +737,13 @@ public class SetBudget7 extends javax.swing.JFrame {
     private javax.swing.JLabel AddTransactions;
     private javax.swing.JLabel EnterAmount;
     private javax.swing.JButton add;
+    private javax.swing.JLabel amount;
     private javax.swing.JComboBox<String> category;
     private javax.swing.JButton decimal;
     private javax.swing.JButton delete;
     private javax.swing.JTextField description;
     private javax.swing.JButton eight;
+    private javax.swing.JLabel expense;
     private javax.swing.JButton five;
     private javax.swing.JButton four;
     private javax.swing.JLabel home;
@@ -627,13 +752,17 @@ public class SetBudget7 extends javax.swing.JFrame {
     private javax.swing.JLabel home3;
     private javax.swing.JPanel homePanel;
     private javax.swing.JLabel image;
+    private javax.swing.JLabel income;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton nine;
     private javax.swing.JButton one;
@@ -643,7 +772,6 @@ public class SetBudget7 extends javax.swing.JFrame {
     private javax.swing.JButton three;
     private javax.swing.JPanel title;
     private javax.swing.JButton two;
-    private javax.swing.JLabel typeAmount;
     private javax.swing.JButton zero;
     // End of variables declaration                   
 }

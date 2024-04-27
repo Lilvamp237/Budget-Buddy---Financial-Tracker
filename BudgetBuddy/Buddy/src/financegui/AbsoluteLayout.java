@@ -42,7 +42,7 @@
  * made subject to such option by the copyright holder.
  */
 
-package BudgetBuddy;
+package financegui;
 
 import java.awt.*;
 

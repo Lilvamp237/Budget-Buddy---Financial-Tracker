@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 public class Category {
     private String categoryName;

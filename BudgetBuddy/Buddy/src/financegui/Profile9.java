@@ -1,7 +1,8 @@
-package BudgetBuddy;
+package financegui;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 /**
  * 
  *
@@ -343,7 +344,16 @@ public class Profile9 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
 
-
+        home2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Perform the action when the label is clicked
+                // For example, open a new frame
+                dispose();
+                OverviewIncome add = new OverviewIncome(userr);
+                add.setVisible(true);
+            }
+        });
 
         home1.addMouseListener(new MouseAdapter() {
             @Override

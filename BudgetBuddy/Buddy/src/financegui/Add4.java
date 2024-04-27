@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 /**
  *
@@ -155,6 +155,11 @@ public class Add4 extends javax.swing.JFrame {
 
         home2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         home2.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/stat.png"))); // NOI18N
+        home2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                home2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -268,7 +273,13 @@ public class Add4 extends javax.swing.JFrame {
         this.dispose();                                 
         Profile9 frame=new Profile9(user);
         frame.setVisible(true);
-    }                                 
+    }  
+    
+    private void home2MouseClicked(java.awt.event.MouseEvent evt) {     
+        this.dispose();                               
+        OverviewIncome frame=new OverviewIncome(user);
+        frame.setVisible(true);
+    }  
 
     /**
      * @param args the command line arguments

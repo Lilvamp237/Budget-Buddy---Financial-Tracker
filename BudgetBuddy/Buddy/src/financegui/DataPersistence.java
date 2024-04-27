@@ -1,4 +1,4 @@
-package BudgetBuddy;
+package financegui;
 
 public interface DataPersistence {
     public void saveData();
