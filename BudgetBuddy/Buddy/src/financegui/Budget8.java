@@ -1,5 +1,8 @@
 package financegui;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author senud
@@ -7,9 +10,11 @@ package financegui;
 public class Budget8 extends javax.swing.JFrame {
 
     private float totalBudget;
-    private String month, note;
+    private String note;
+    private Category month;
     private User user;
     private String uname;
+    private float currentBudget;
 
     /**
      * Creates new form Frame3
@@ -29,21 +34,46 @@ public class Budget8 extends javax.swing.JFrame {
         initComponents();
     }
 
-    public boolean addBudget(String month, String note, float amount){
+    public Budget8(User user, Category month, String note, float budget){
+        this.user = user;
         this.month = month;
         this.note = note;
-        this.totalBudget = amount;
+        this.totalBudget = budget;
+    }
+
+    public boolean addNewBudget(){
         DB db = new DB();
-        if (db.execute("INSERT INTO income(username, month, note, amount) VALUES ('" + user.getUserName().trim() + "', '" + month.trim() + "', '" + note.trim() + "', '" + amount +  "')")) {
+        //SHould implement methid to also check whether it exceeds total income
+        if (db.execute("INSERT INTO budget(username, month, note, amount) VALUES ('" + user.getUserName().trim() + "', '" + month.getCategoryName().trim() + "', '" + note.trim() + "', '" + totalBudget +  "')")) {
             return true;
         }
         db.closeCon();
         return false;
     }
 
-    public boolean updateBudget(){
+    public boolean existBudget(){
+        boolean out = false;
         DB db = new DB();
-        if (db.execute("INSERT INTO income(username, month, note, amount) VALUES ('" + user.getUserName().trim() + "', '" + month.trim() + "', '" + note.trim() + "', '" + totalBudget +  "')")) {
+        ResultSet rs = db.getData("SELECT month FROM budget WHERE username = '" + user.getUserName().trim() + "' AND month = '" + month.getCategoryName().trim() + "'");
+        try {
+            out = rs.next();
+            // If the username exists, retrieve the full name
+            if (out) {
+                return true;
+            }
+            System.out.println(out);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            db.closeCon();
+        }
+        return false;
+    }
+
+    public boolean updateBudget(float budget){
+        totalBudget = budget;
+        DB db = new DB();
+        if (db.execute("UPDATE budget SET amount='" + totalBudget +  "' where month='" + month.getCategoryName().trim() + "' AND username= '" + user.getUserName().trim() + "'")) {
             return true;
         }
         db.closeCon();

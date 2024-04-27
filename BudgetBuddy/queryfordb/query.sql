@@ -15,6 +15,7 @@ CREATE TABLE income
 username VARCHAR(30),
 category VARCHAR(30),
 description TEXT,
+month datetime default now(),
 amount DECIMAL(12,2),
 foreign key(username) references user(username));
 
@@ -26,6 +27,7 @@ CREATE TABLE expenses
 username VARCHAR(30),
 category VARCHAR(30),
 description TEXT,
+month datetime default now(),
 amount DECIMAL(12,2),
 foreign key(username) references user(username));
 

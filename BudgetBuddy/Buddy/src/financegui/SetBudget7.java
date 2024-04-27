@@ -1,5 +1,8 @@
 package financegui;
 
+import javax.swing.JOptionPane;
+import javax.swing.*;
+
 /**
  *
  * @author senud
@@ -442,7 +445,7 @@ public class SetBudget7 extends javax.swing.JFrame {
 
         typeAmount.setFont(new java.awt.Font("Times New Roman", 0, 40)); // NOI18N
         typeAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        typeAmount.setText("65,000.00");
+        typeAmount.setText("00");
         getContentPane().add(typeAmount, new AbsoluteConstraints(210, 120, 290, 70));
 
         jLabel1.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
@@ -460,6 +463,53 @@ public class SetBudget7 extends javax.swing.JFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {                                    
         // TODO add your handling code here:
+        Category categ = new Category((String)category.getSelectedItem());
+        String note = description.getText();
+        float amountValue = 0;
+        boolean correct = true;
+
+        try {
+            // Get the text from the JTextField
+            String amountText = typeAmount.getText();
+            // Parse the text as a float
+            amountValue = Float.parseFloat(amountText);
+        } catch (NumberFormatException ex) {
+            // Handle the case where the text is not a valid float
+            correct = false;
+            System.err.println("Invalid format!");
+        }
+        if(correct == false){
+            JOptionPane.showMessageDialog(null, "Invalid input, try again.");
+        }
+        else {
+            // Insert the user data into the database
+            Budget8 budget = new Budget8(user, categ, note, amountValue);
+            if (budget.existBudget()) {
+                //JOptionPane.showMessageDialog(null, "Budget already set for " + categ.getCategoryName());
+                String[] options = { "Update the exisiting", "Make no changes" };
+                int selection = JOptionPane.showOptionDialog(null, "What do you want to do?", "Budget already set for '" + categ.getCategoryName() + "'", 
+                                                      0, 3, null, options, options[0]);
+                if (selection == 0) {
+                    if(budget.updateBudget(amountValue)){
+                        JOptionPane.showMessageDialog(null, "Updated successfully!");
+                    } 
+                }
+                if (selection == 1) { 
+                    JOptionPane.showMessageDialog(null, "You made no changes.");
+                }
+            }
+            else {
+                if (budget.addNewBudget()){
+                    JOptionPane.showMessageDialog(null, "Budget for the month " + categ.getCategoryName() +" added successfully!");
+                    typeAmount.setText("0");
+                    currentbudget = "";
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Failed to add the expense, try again!");
+                }
+            }
+        }
+
     }                                   
 
     private void descriptionActionPerformed(java.awt.event.ActionEvent evt) {                                            
