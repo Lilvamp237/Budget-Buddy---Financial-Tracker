@@ -471,7 +471,6 @@ public class SetBudget7 extends javax.swing.JFrame {
         try {
             // Get the text from the JTextField
             String amountText = typeAmount.getText();
-            // Parse the text as a float
             amountValue = Float.parseFloat(amountText);
         } catch (NumberFormatException ex) {
             // Handle the case where the text is not a valid float
@@ -484,28 +483,39 @@ public class SetBudget7 extends javax.swing.JFrame {
         else {
             // Insert the user data into the database
             Budget8 budget = new Budget8(user, categ, note, amountValue);
+            ExpenseTransaction eTransaction = new ExpenseTransaction(user);
+            IncomeTransaction iTransaction = new IncomeTransaction(user);
             if (budget.existBudget()) {
-                //JOptionPane.showMessageDialog(null, "Budget already set for " + categ.getCategoryName());
                 String[] options = { "Update the exisiting", "Make no changes" };
                 int selection = JOptionPane.showOptionDialog(null, "What do you want to do?", "Budget already set for '" + categ.getCategoryName() + "'", 
                                                       0, 3, null, options, options[0]);
                 if (selection == 0) {
-                    if(budget.updateBudget(amountValue)){
-                        JOptionPane.showMessageDialog(null, "Updated successfully!");
-                    } 
+                    if(amountValue>iTransaction.getTotalIncome()){
+                        JOptionPane.showMessageDialog(null, "Budget cannot exceed monthly income.\n Current income: "+iTransaction.getTotalIncome());
+                    }
+                    else{
+                        if(budget.updateBudget(amountValue)){
+                            JOptionPane.showMessageDialog(null, "Updated successfully!");
+                        }
+                    }
                 }
                 if (selection == 1) { 
                     JOptionPane.showMessageDialog(null, "You made no changes.");
                 }
             }
             else {
-                if (budget.addNewBudget()){
-                    JOptionPane.showMessageDialog(null, "Budget for the month " + categ.getCategoryName() +" added successfully!");
-                    typeAmount.setText("0");
-                    currentbudget = "";
+                if(amountValue>iTransaction.getTotalIncome()){
+                    JOptionPane.showMessageDialog(null, "Budget cannot exceed monthly income. \n Current income: "+iTransaction.getTotalIncome());
                 }
-                else {
-                    JOptionPane.showMessageDialog(null, "Failed to add the expense, try again!");
+                else{
+                    if (budget.addNewBudget()){
+                        JOptionPane.showMessageDialog(null, "Budget for the month " + categ.getCategoryName() +" added successfully!");
+                        typeAmount.setText("0");
+                        currentbudget = "";
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Failed to add the expense, try again!");
+                    }
                 }
             }
         }

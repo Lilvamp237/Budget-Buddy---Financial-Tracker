@@ -12,7 +12,6 @@ import java.awt.event.MouseEvent;
 public class Home3 extends javax.swing.JFrame {
 
     private User user;
-
     private String uname;
 
     public Home3() {
@@ -127,9 +126,13 @@ public class Home3 extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CURRENT BALANCE");
 
+        ExpenseTransaction eTransaction = new ExpenseTransaction(user);
+        IncomeTransaction iTransaction = new IncomeTransaction(user);
+        float balannce = iTransaction.getTotalIncome() - eTransaction.getTotalExpenses();
+
         balance.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         balance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        balance.setText("Rs. 5,000,000.00");
+        balance.setText("" + balannce + "");
 
         javax.swing.GroupLayout currentBalanceLayout = new javax.swing.GroupLayout(currentBalance);
         currentBalance.setLayout(currentBalanceLayout);
@@ -164,7 +167,7 @@ public class Home3 extends javax.swing.JFrame {
 
         expense.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         expense.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        expense.setText("Rs. 3,500,000.00");
+        expense.setText(eTransaction.toString());
 
         javax.swing.GroupLayout ExpensesLayout = new javax.swing.GroupLayout(Expenses);
         Expenses.setLayout(ExpensesLayout);
@@ -198,7 +201,7 @@ public class Home3 extends javax.swing.JFrame {
 
         income.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
         income.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        income.setText("Rs. 8,500,000.00");
+        income.setText(iTransaction.toString());
 
         javax.swing.GroupLayout IncomeLayout = new javax.swing.GroupLayout(Income);
         Income.setLayout(IncomeLayout);

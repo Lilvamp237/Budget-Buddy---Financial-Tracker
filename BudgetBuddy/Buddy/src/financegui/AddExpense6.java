@@ -316,7 +316,7 @@ public class AddExpense6 extends javax.swing.JFrame {
         getContentPane().add(description, new AbsoluteConstraints(140, 500, 350, 30));
 
         category.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Category", "Shopping", "Utilities", "Groceries", "Other", " " }));
+        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Category", "Shopping", "Utilities", "Groceries", "Other" }));
         category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryActionPerformed(evt);

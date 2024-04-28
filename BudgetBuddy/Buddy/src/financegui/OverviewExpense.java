@@ -12,6 +12,7 @@ import javaswingdev.chart.PieChart;
 public class OverviewExpense extends javax.swing.JFrame {
 
     private User user;
+    private ExpenseTransaction expenses;
 
     /**
      * Creates new form Frame3
@@ -29,13 +30,34 @@ public class OverviewExpense extends javax.swing.JFrame {
 
     public OverviewExpense(User user) {
         this.user = user;
+        expenses = new ExpenseTransaction(user);
+        String[] values = expenses.getCategory();
+        float floatValue = 0;
+        for(int i =0; i<values.length; i++){
+            System.out.println(values[i]);
+        }
+        float[] floatValues = new float[values.length];
+        for (int i = 0; i < values.length; i++) {
+            String value = values[i];
+            // Split the string by colon ':'
+            String[] parts = value.split(":");
+            if ("null".equals(parts[1].trim())) {
+                floatValues[i] = 0.0f;
+            } else {
+                floatValues[i] = Float.parseFloat(parts[1].trim());
+            }
+        }
+
+
+
+
         initComponents();
         getContentPane().setBackground(new Color(255, 255, 255));
         pieChart1.setChartType(PieChart.PeiChartType.DONUT_CHART);
-        pieChart1.addData(new ModelPieChart("Salary", 60, new Color(23, 126, 238)));
-        pieChart1.addData(new ModelPieChart("Investments", 30, new Color(221, 65, 65)));
-        pieChart1.addData(new ModelPieChart("Other", 10, new Color(47, 157, 64)));
-        //pieChart1.addData(new ModelPieChart("Vita", 60, new Color(196, 151, 58)));
+        pieChart1.addData(new ModelPieChart("Shopping", floatValues[0], new Color(23, 126, 238)));
+        pieChart1.addData(new ModelPieChart("Utilies", floatValues[1], new Color(221, 65, 65)));
+        pieChart1.addData(new ModelPieChart("Other", floatValues[2], new Color(47, 157, 64)));
+        pieChart1.addData(new ModelPieChart("Groceries", floatValues[3], new Color(196, 151, 58)));
     }
 
     /**
@@ -73,8 +95,9 @@ public class OverviewExpense extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Add Income");
+        setTitle("Expense Overview");
         getContentPane().setLayout(new AbsoluteLayout());
+
 
         title.setBackground(new java.awt.Color(0, 204, 204));
         title.setLayout(new AbsoluteLayout());
@@ -324,7 +347,7 @@ public class OverviewExpense extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new AbsoluteConstraints(100, 130, 180, 50));
 
         jLabel2.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
-        jLabel2.setText("3,000,000.00");
+        jLabel2.setText(expenses.getTotalExpensesforCurrentMonth()+"");
         getContentPane().add(jLabel2, new AbsoluteConstraints(280, 130, 180, 50));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bg image.jpg"))); // NOI18N

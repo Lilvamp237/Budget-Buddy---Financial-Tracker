@@ -43,7 +43,6 @@ public class Budget8 extends javax.swing.JFrame {
 
     public boolean addNewBudget(){
         DB db = new DB();
-        //SHould implement methid to also check whether it exceeds total income
         if (db.execute("INSERT INTO budget(username, month, note, amount) VALUES ('" + user.getUserName().trim() + "', '" + month.getCategoryName().trim() + "', '" + note.trim() + "', '" + totalBudget +  "')")) {
             return true;
         }
@@ -78,6 +77,23 @@ public class Budget8 extends javax.swing.JFrame {
         }
         db.closeCon();
         return false;
+    }
+
+    //Gets monthly budget of curent month
+    public float getCurrentBudget() {
+        try {
+            DB db = new DB();
+            ResultSet rs = db.getData("SELECT amount FROM budget WHERE MONTH(STR_TO_DATE(CONCAT('2024-', month, '-01'), '%Y-%M-%d')) = MONTH(CURRENT_DATE()) AND YEAR(STR_TO_DATE(CONCAT('2024-', month, '-01'), '%Y-%M-%d')) = YEAR(CURRENT_DATE());");
+            if (rs.next()) {
+                currentBudget = rs.getFloat("amount");
+            }
+            db.closeCon();
+        } catch (SQLException e) { 
+            e.printStackTrace(); 
+        } catch (Exception e) { 
+            e.printStackTrace(); 
+        }
+        return currentBudget;
     }
 
     /**
@@ -272,12 +288,14 @@ public class Budget8 extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 630, 550, 70));
 
-        jLabel2.setText("*means both plus sign & wallet sign leads to add budget i guess.. let's see");
-        getContentPane().add(jLabel2, new AbsoluteConstraints(60, 540, 450, 50));
+        //jLabel2.setText("*means both plus sign & wallet sign leads to add budget i guess.. let's see");
+        //getContentPane().add(jLabel2, new AbsoluteConstraints(60, 540, 450, 50));
 
         jLabel5.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Rs.600");
+        ExpenseTransaction eTransaction = new ExpenseTransaction(user);
+        IncomeTransaction iTransaction = new IncomeTransaction(user);
+        jLabel5.setText("Rs."+(getCurrentBudget()-eTransaction.getTotalExpenses()));
         getContentPane().add(jLabel5, new AbsoluteConstraints(200, 140, 140, 50));
 
         jLabel6.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
@@ -293,7 +311,7 @@ public class Budget8 extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Spent Rs.7000 of Rs.7600");
+        jLabel7.setText("Spent Rs." + eTransaction.getTotalExpenses() + " of Rs."+getCurrentBudget());
         getContentPane().add(jLabel7, new AbsoluteConstraints(140, 300, -1, -1));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bg image.jpg"))); // NOI18N
@@ -354,12 +372,6 @@ public class Budget8 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Budget8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

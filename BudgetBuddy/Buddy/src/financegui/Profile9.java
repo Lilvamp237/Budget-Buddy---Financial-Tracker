@@ -347,8 +347,6 @@ public class Profile9 extends javax.swing.JFrame {
         home2.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
                 OverviewIncome add = new OverviewIncome(userr);
                 add.setVisible(true);
@@ -358,8 +356,6 @@ public class Profile9 extends javax.swing.JFrame {
         home1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
                 Home3 add = new Home3(userr);
                 add.setVisible(true);
@@ -369,8 +365,6 @@ public class Profile9 extends javax.swing.JFrame {
         home3.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Perform the action when the label is clicked
-                // For example, open a new frame
                 dispose();
                 Budget8 add = new Budget8(userr);
                 add.setVisible(true);

@@ -245,6 +245,7 @@ public class Add4 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
+    //Methods for buttons to navogate to other pages
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {   
         this.dispose();                                
         Home3 frame=new Home3(user);
@@ -306,12 +307,6 @@ public class Add4 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Add4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

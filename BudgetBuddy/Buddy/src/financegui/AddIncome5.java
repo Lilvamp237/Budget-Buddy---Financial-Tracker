@@ -313,7 +313,7 @@ public class AddIncome5 extends javax.swing.JFrame {
         getContentPane().add(description, new AbsoluteConstraints(140, 500, 350, 30));
 
         category.setFont(new java.awt.Font("Candara", 0, 20)); // NOI18N
-        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Category", "Salary", "Other", " " }));
+        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Category", "Salary", "Investments", "Other" }));
         category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryActionPerformed(evt);
@@ -522,7 +522,7 @@ public class AddIncome5 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
 
-
+        //Method to add a new income of the user
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Category categ = new Category((String)category.getSelectedItem());
@@ -533,7 +533,6 @@ public class AddIncome5 extends javax.swing.JFrame {
                 try {
                     // Get the text from the JTextField
                     String amountText = amount.getText();
-                    // Parse the text as a float
                     amountValue = Float.parseFloat(amountText);
                 } catch (NumberFormatException ex) {
                     // Handle the case where the text is not a valid float
