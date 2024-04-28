@@ -7,7 +7,7 @@ import java.sql.SQLException;
  *
  * @author senud
  */
-public class Budget8 extends javax.swing.JFrame {
+public class Oldbudget extends javax.swing.JFrame {
 
     private float totalBudget;
     private String note;
@@ -19,16 +19,22 @@ public class Budget8 extends javax.swing.JFrame {
     /**
      * Creates new form Frame3
      */
-    public Budget8() {
+    public Oldbudget() {
+        this.uname = "";
         initComponents();
     }
 
-    public Budget8(User user) {
+    public Oldbudget(String uname) {
+        this.uname = uname;
+        initComponents();
+    }
+
+    public Oldbudget(User user) {
         this.user = user;
         initComponents();
     }
 
-    public Budget8(User user, Category month, String note, float budget){
+    public Oldbudget(User user, Category month, String note, float budget){
         this.user = user;
         this.month = month;
         this.note = note;
@@ -77,7 +83,7 @@ public class Budget8 extends javax.swing.JFrame {
     public float getCurrentBudget() {
         try {
             DB db = new DB();
-            ResultSet rs = db.getData("SELECT amount FROM budget WHERE MONTH(STR_TO_DATE(CONCAT('2024-', month, '-01'), '%Y-%M-%d')) = MONTH(CURRENT_DATE()) AND YEAR(STR_TO_DATE(CONCAT('2024-', month, '-01'), '%Y-%M-%d')) = YEAR(CURRENT_DATE()) AND username= '" + user.getUserName().trim() + "'");
+            ResultSet rs = db.getData("SELECT amount FROM budget WHERE MONTH(STR_TO_DATE(CONCAT('2024-', month, '-01'), '%Y-%M-%d')) = MONTH(CURRENT_DATE()) AND YEAR(STR_TO_DATE(CONCAT('2024-', month, '-01'), '%Y-%M-%d')) = YEAR(CURRENT_DATE());");
             if (rs.next()) {
                 currentBudget = rs.getFloat("amount");
             }
@@ -111,14 +117,12 @@ public class Budget8 extends javax.swing.JFrame {
         home3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         home2 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         jLabel7 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        liquidProgress = new swing.LiquidProgress();
         image = new javax.swing.JLabel();
-
-        ExpenseTransaction eTransaction = new ExpenseTransaction(user);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new AbsoluteLayout());
@@ -284,10 +288,14 @@ public class Budget8 extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new AbsoluteConstraints(0, 630, 550, 70));
 
+        //jLabel2.setText("*means both plus sign & wallet sign leads to add budget i guess.. let's see");
+        //getContentPane().add(jLabel2, new AbsoluteConstraints(60, 540, 450, 50));
+
         jLabel5.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        float remianing = (getCurrentBudget()-eTransaction.getTotalExpenses());
-        jLabel5.setText("Rs."+remianing);
+        ExpenseTransaction eTransaction = new ExpenseTransaction(user);
+        IncomeTransaction iTransaction = new IncomeTransaction(user);
+        jLabel5.setText("Rs."+(getCurrentBudget()-eTransaction.getTotalExpenses()));
         getContentPane().add(jLabel5, new AbsoluteConstraints(200, 140, 140, 50));
 
         jLabel6.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
@@ -295,39 +303,16 @@ public class Budget8 extends javax.swing.JFrame {
         jLabel6.setText("Remaining of this month");
         getContentPane().add(jLabel6, new AbsoluteConstraints(150, 180, -1, -1));
 
+        jProgressBar1.setBackground(new java.awt.Color(0, 0, 204));
+        jProgressBar1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jProgressBar1.setForeground(new java.awt.Color(51, 51, 255));
+        jProgressBar1.setValue(90);
+        getContentPane().add(jProgressBar1, new AbsoluteConstraints(150, 240, 240, 30));
+
         jLabel7.setFont(new java.awt.Font("Candara", 0, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Spent Rs." + eTransaction.getTotalExpenses() + " of Rs."+getCurrentBudget());
-        getContentPane().add(jLabel7, new AbsoluteConstraints(150, 500, -1, -1));
-
-        jPanel6.setBackground(new java.awt.Color(42, 161, 233));
-
-        liquidProgress.setBackground(new java.awt.Color(153, 219, 255));
-        liquidProgress.setBorder(null);
-        liquidProgress.setForeground(new java.awt.Color(42, 161, 233));
-        int currentbudgett = (int)getCurrentBudget();
-        int percentage = (int)((remianing/currentbudgett)*100);
-        liquidProgress.setValue(percentage);
-        liquidProgress.setAnimateColor(new java.awt.Color(255, 255, 255));
-        liquidProgress.setBorderColor(new java.awt.Color(42, 161, 233));
-        liquidProgress.setBorderSize(8);
-        liquidProgress.setSpaceSize(10);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(liquidProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(liquidProgress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new AbsoluteConstraints(140, 230, 270, 250));
+        getContentPane().add(jLabel7, new AbsoluteConstraints(140, 300, -1, -1));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/bg image.jpg"))); // NOI18N
         image.setText("jLabel9");
@@ -338,29 +323,29 @@ public class Budget8 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void plusMouseClicked(java.awt.event.MouseEvent evt) {                                  
-        this.dispose();
+    private void plusMouseClicked(java.awt.event.MouseEvent evt) {  
+        this.dispose();                                
         Add4 frame=new Add4(user);
         frame.setVisible(true);
     }                                 
 
-    private void homeMouseClicked(java.awt.event.MouseEvent evt) {                                  
-        this.dispose();
+    private void homeMouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                 
         Profile9 frame=new Profile9(user);
         frame.setVisible(true);
     }                                 
 
-    private void home1MouseClicked(java.awt.event.MouseEvent evt) {                                   
-        this.dispose();
+    private void home1MouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                  
         Home3 frame=new Home3(user);
         frame.setVisible(true);
-    }                                  
-
-    private void home2MouseClicked(java.awt.event.MouseEvent evt) {                                   
-        this.dispose();
+    } 
+    
+    private void home2MouseClicked(java.awt.event.MouseEvent evt) { 
+        this.dispose();                                  
         OverviewIncome frame=new OverviewIncome(user);
         frame.setVisible(true);
-    }                                  
+    } 
 
     /**
      * @param args the command line arguments
@@ -379,13 +364,13 @@ public class Budget8 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Budget8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Oldbudget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Budget8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Oldbudget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Budget8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Oldbudget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Budget8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Oldbudget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -393,7 +378,7 @@ public class Budget8 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Budget8().setVisible(true);
+                new Oldbudget().setVisible(true);
             }
         });
     }
@@ -405,6 +390,7 @@ public class Budget8 extends javax.swing.JFrame {
     private javax.swing.JLabel home3;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -413,8 +399,7 @@ public class Budget8 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private swing.LiquidProgress liquidProgress;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel plus;
     private javax.swing.JPanel title;
     // End of variables declaration                   

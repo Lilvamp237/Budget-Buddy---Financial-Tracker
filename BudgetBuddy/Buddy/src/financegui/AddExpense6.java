@@ -518,7 +518,8 @@ public class AddExpense6 extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-
+        
+        //Method to add a new expense of the user
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Category categ = new Category((String)category.getSelectedItem());
@@ -529,7 +530,6 @@ public class AddExpense6 extends javax.swing.JFrame {
                 try {
                     // Get the text from the JTextField
                     String amountText = amount.getText();
-                    // Parse the text as a float
                     amountValue = Float.parseFloat(amountText);
                 } catch (NumberFormatException ex) {
                     // Handle the case where the text is not a valid float

@@ -49,7 +49,6 @@ public class OverviewIncome extends javax.swing.JFrame {
             if ("null".equals(parts[1].trim())) {
                 floatValues[i] = 0.0f;
             } else {
-                // Otherwise, parse the value to float
                 floatValues[i] = Float.parseFloat(parts[1].trim());
             }
         }
