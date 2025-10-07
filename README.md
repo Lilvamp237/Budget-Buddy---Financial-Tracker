@@ -84,6 +84,20 @@ java -cp . App
 
 ---
 
+## 🗄️ Database Setup (Optional)
+
+Budget Buddy uses a set of SQL queries to manage data.  
+The `queryfordb/` folder contains:
+
+- Table creation scripts
+- Sample inserts
+- Example queries
+
+To set up your own database, run the scripts in a SQL client (MySQL, SQLite, etc.).  
+The application can later be configured to connect to your local database.
+
+---
+
 ## 🧰 Technologies Used
 
 | Component      | Technology                             |
