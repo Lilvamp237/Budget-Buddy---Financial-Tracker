@@ -1,6 +1,6 @@
-# 💰 BudgeT Buddy
+# 💰 Budget Buddy
 
-**BudgeT Buddy** is a **Java Swing-based desktop application** designed to simplify personal finance management.  
+**Budget Buddy** is a **Java Swing-based desktop application** designed to simplify personal finance management.  
 It allows users to track expenses and income, visualize spending patterns, and manage budgets — all through an intuitive and lightweight graphical interface.  
 This project is our 2nd year 1st semester OOP group assignment, which was to develop a finance tracker app using java.
 
